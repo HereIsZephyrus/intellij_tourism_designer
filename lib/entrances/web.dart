@@ -12,8 +12,13 @@ class WebApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: "智能旅游规划助手",
+      theme: ThemeData(
+        useMaterial3: true,
+        colorSchemeSeed: const Color(0xff6750a4),
+      ),
+      home: const HomePage(),
       routes: {
-        '/': (context) => const HomePage(),
         '/login':(context) => const LoginPage(),
         '/signup':(context) => const SignUpPage(),
         '/user':(context) => const UserPage(),
