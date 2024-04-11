@@ -1,4 +1,7 @@
 import 'package:latlong2/latlong.dart';
 
-const LatLng nanwangshan = LatLng(30.5229, 114.3916);
-const LatLng weilaicheng = LatLng(30.4613, 114.6103);
+class Location {
+  static const LatLng nanwangshan = LatLng(30.5236,114.3978);
+  static const LatLng weilaicheng = LatLng(30.45996,114.61297);
+  static const LatLng home = LatLng(29.88610,121.58349);
+}

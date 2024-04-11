@@ -35,19 +35,19 @@ class HomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Container(
+            SizedBox(
               width: MediaQuery.of(context).size.width * 0.8,
-              height: MediaQuery.of(context).size.height * 0.5,
-              child: Flex(
+              height: MediaQuery.of(context).size.height * 0.6,
+              child: const Flex(
                   direction: Axis.horizontal,
                   children: <Widget>[
                     Expanded(
-                      flex: 3,
+                      flex: 4,
                       child: DemoMap()
                     ),
-                    const Expanded(
+                    Expanded(
                       flex: 1,
-                      child: Text("用户对话框")
+                      child: Text("这里应该是一个用户对话框,不过还没开发,地图可以拖动和缩放.")
                     )
                   ]
                 ),
