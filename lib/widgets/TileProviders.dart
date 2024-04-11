@@ -2,7 +2,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map_cancellable_tile_provider/flutter_map_cancellable_tile_provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-enum Provider {
+enum MapServiceProvider {
   osm,
   google,
   baidu,
@@ -12,50 +12,49 @@ enum Provider {
 }
 
 class TileMap{
-  final Provider provider;
+  final MapServiceProvider provider;
   final TileLayer map;
   final TextSourceAttribution info;
 
-  TileMap(Provider provider):
+  TileMap(MapServiceProvider provider):
     this.provider = provider,
     this.map = _tileMap(provider),
-    this.info = _tileInfo(provider);
-}
+    this.info = _tileInfo(provider);}
 
-TextSourceAttribution _tileInfo(Provider provider){
+TextSourceAttribution _tileInfo(MapServiceProvider provider){
   TextSourceAttribution info;
   switch (provider){
-    case Provider.osm:
+    case MapServiceProvider.osm:
       info = TextSourceAttribution(
         '使用OpenStreetMap服务',
         onTap: () async => launchUrl(Uri.parse('https://openstreetmap.org/copyright'),),
       );
       break;
-    case Provider.google:
+    case MapServiceProvider.google:
       info = TextSourceAttribution(
         '使用Google服务',
         onTap: () async => launchUrl(Uri.parse('https://www.google.com/intl/zh-CN_us/help/terms_maps/')),
       );
       break;
-    case Provider.baidu:
+    case MapServiceProvider.baidu:
       info = TextSourceAttribution(
         '使用百度服务',
         onTap: () async => launchUrl(Uri.parse('https://map.baidu.com/')),
       );
       break;
-    case Provider.mapbox:
+    case MapServiceProvider.mapbox:
       info = TextSourceAttribution(
         '使用Mapbox服务',
         onTap: () async => launchUrl(Uri.parse('https://www.mapbox.com/')),
       );
       break;
-    case Provider.tianditu:
+    case MapServiceProvider.tianditu:
       info = TextSourceAttribution(
         '使用天地图服务',
         onTap: () async => launchUrl(Uri.parse('https://www.tianditu.com/')),
       );
       break;
-    case Provider.gaode:
+    case MapServiceProvider.gaode:
       info = TextSourceAttribution(
         '使用高德服务',
         onTap: () async => launchUrl(Uri.parse('https://www.amap.com/')),
@@ -65,27 +64,27 @@ TextSourceAttribution _tileInfo(Provider provider){
   return info;
 }
 
-TileLayer _tileMap(Provider provider) {
+TileLayer _tileMap(MapServiceProvider provider) {
     //assert(provider != null, 'provider must not be null');
     TileLayer tileLayer;
 
     switch (provider) {
-      case Provider.osm:
+      case MapServiceProvider.osm:
         tileLayer = openStreetMapTileLayer;
         break;
-      case Provider.google:
+      case MapServiceProvider.google:
         tileLayer = googleTileLayer;
         break;
-      case Provider.baidu:
+      case MapServiceProvider.baidu:
         tileLayer = baiduTileLayer;
         break;
-      case Provider.mapbox:
+      case MapServiceProvider.mapbox:
         tileLayer = mapboxTileLayer;
         break;
-      case Provider.tianditu:
+      case MapServiceProvider.tianditu:
         tileLayer = tiandituTileLayer;
         break;
-      case Provider.gaode:
+      case MapServiceProvider.gaode:
         tileLayer = gaodeTileLayer;
         break;
       default:
@@ -123,7 +122,7 @@ TileLayer get mapboxTileLayer => TileLayer(
     );
   
 TileLayer get tiandituTileLayer => TileLayer(
-      urlTemplate: 'https://t0.tianditu.gov.cn/DataServer?T=vec_w&x={x}&y={y}&l={z}&tk=',
+      urlTemplate: 'http://t0.tianditu.gov.cn/img_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=img&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&tk=7293b0825c52ef16081a15ce8dfd0b46',
       userAgentPackageName: 'intellij_tourism_designer',
       tileProvider: CancellableNetworkTileProvider(),
     );
