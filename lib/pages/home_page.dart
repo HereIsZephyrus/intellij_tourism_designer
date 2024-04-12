@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:intellij_tourism_designer/widgets/MapView.dart';
+import 'package:intellij_tourism_designer/widgets/map_view.dart';
 class HomePage extends StatelessWidget {
   static const String route = '/';
   const HomePage({super.key});

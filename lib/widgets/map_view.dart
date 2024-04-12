@@ -1,13 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:intellij_tourism_designer/constants/Constants.dart';
-import 'package:intellij_tourism_designer/constants/Location.dart';
+import 'package:intellij_tourism_designer/constants/constants.dart';
+import 'package:intellij_tourism_designer/constants/locations.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:intellij_tourism_designer/widgets/TileProviders.dart';
-import 'package:intellij_tourism_designer/constants/Markers.dart';
-import 'package:intellij_tourism_designer/widgets/ZoomButton.dart';
-import 'package:intellij_tourism_designer/constants/Constants.dart';
+import 'package:intellij_tourism_designer/widgets/tile_providers.dart';
+import 'package:intellij_tourism_designer/constants/markers.dart';
+import 'package:intellij_tourism_designer/widgets/zoom_button.dart';
 class DemoMap extends StatefulWidget {
   const DemoMap({super.key});
   @override

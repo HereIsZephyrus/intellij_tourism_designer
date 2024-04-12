@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:intellij_tourism_designer/pages/HomePage.dart';
-import 'package:intellij_tourism_designer/pages/LoginPage.dart';
-import 'package:intellij_tourism_designer/pages/SignUpPage.dart';
-import 'package:intellij_tourism_designer/pages/UserPage.dart';
-import 'package:intellij_tourism_designer/pages/EditTracePage.dart';
-import 'package:intellij_tourism_designer/pages/PickUpPage.dart';
+import 'package:intellij_tourism_designer/pages/home_page.dart';
+import 'package:intellij_tourism_designer/pages/login_page.dart';
+import 'package:intellij_tourism_designer/pages/signup_page.dart';
+import 'package:intellij_tourism_designer/pages/user_page.dart';
+import 'package:intellij_tourism_designer/pages/edit_trace_page.dart';
+import 'package:intellij_tourism_designer/pages/pickup_page.dart';
 
 class WebApp extends StatelessWidget {
   const WebApp({super.key});

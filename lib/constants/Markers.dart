@@ -1,5 +1,5 @@
 import 'package:flutter_map/flutter_map.dart';
-import 'package:intellij_tourism_designer/constants/Location.dart';
+import 'package:intellij_tourism_designer/constants/locations.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 
