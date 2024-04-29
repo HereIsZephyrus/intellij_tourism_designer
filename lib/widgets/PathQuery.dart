@@ -4,6 +4,8 @@ import 'package:intellij_tourism_designer/constants/Themes.dart';
 import 'package:intellij_tourism_designer/constants/location.dart';
 import 'package:intellij_tourism_designer/widgets/ItemList.dart';
 
+//这是一个路径查询的界面，计划是比较自由的，可以任意选途径点和一些个性选项
+
 class PathQueryWidget extends StatefulWidget {
   const PathQueryWidget({super.key});
 

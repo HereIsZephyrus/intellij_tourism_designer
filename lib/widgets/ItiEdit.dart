@@ -5,6 +5,8 @@ import 'package:intellij_tourism_designer/constants/location.dart';
 import 'package:intellij_tourism_designer/Provider/DataModel.dart';
 import 'package:intellij_tourism_designer/widgets/DetailView.dart';
 
+//编辑行程
+
 class ItiEditWidget extends StatefulWidget {
   final Itinerary curIti;
   const ItiEditWidget({required this.curIti,super.key});

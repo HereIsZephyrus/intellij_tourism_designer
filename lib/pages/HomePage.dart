@@ -5,7 +5,7 @@ import 'package:intellij_tourism_designer/pages/CompanionPage.dart';
 import 'package:intellij_tourism_designer/widgets/MapView.dart';
 import 'package:intellij_tourism_designer/constants/Themes.dart';
 
-//主页，AppBar的按钮可以实现DataPage/EditTracePage/CompanionPage的相互跳转
+//主页，AppBar的按钮可以实现DataPage/ItineraryPage/CompanionPage的相互跳转
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -76,7 +76,7 @@ class _HomePageState extends State<HomePage> {
                   DataPage(),
                   ItineraryPage(),
                   CompanionPage(),
-                  MapWidget()
+                  DemoMap()
                 ]
               ),
             )

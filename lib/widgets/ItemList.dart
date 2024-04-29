@@ -3,6 +3,7 @@ import 'package:intellij_tourism_designer/widgets/DetailView.dart';
 import 'package:intellij_tourism_designer/constants/Themes.dart';
 import 'package:intellij_tourism_designer/constants/location.dart';
 
+//设施列表样式1，或许后续有其他样式
 class POIList1 extends StatefulWidget {
   const POIList1({super.key});
 
@@ -29,7 +30,7 @@ class _POIList1State extends State<POIList1> {
   }
 }
 
-
+//设施列表样式2，或许后续有其他样式
 class POIList2 extends StatefulWidget {
   const POIList2({super.key});
 

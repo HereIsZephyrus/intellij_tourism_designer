@@ -9,6 +9,8 @@ import 'package:intellij_tourism_designer/widgets/ItiEdit.dart';
 import 'package:intellij_tourism_designer/widgets/MapView.dart';
 import 'package:intellij_tourism_designer/widgets/ItiFeature.dart';
 
+//行程规划模块
+
 class ItineraryPage extends StatefulWidget {
   const ItineraryPage({super.key});
 
@@ -104,7 +106,7 @@ class _ItineraryPageState extends State<ItineraryPage> {
         Container(
           width:size.width-150-(curState==0?0:400),
           height:size.height-48,
-          child:MapWidget()
+          child:DemoMap()
         )
       ]
     );

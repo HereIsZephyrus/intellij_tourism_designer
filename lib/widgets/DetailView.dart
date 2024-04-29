@@ -4,6 +4,8 @@ import 'package:intellij_tourism_designer/constants/Themes.dart';
 import 'package:intellij_tourism_designer/constants/location.dart';
 import 'package:intellij_tourism_designer/Provider/DataModel.dart';
 
+//细节信息的展示卡片
+
 class POICard1 extends StatefulWidget {
   final POI poi;
 

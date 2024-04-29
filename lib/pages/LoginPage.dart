@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intellij_tourism_designer/constants/Themes.dart';
 
+//登录界面，现在有一些Bug，我记得我没动过这个来着...
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 

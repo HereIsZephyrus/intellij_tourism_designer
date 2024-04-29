@@ -10,6 +10,8 @@ import 'package:intellij_tourism_designer/widgets/CityStats.dart';
 import 'package:intellij_tourism_designer/constants/Themes.dart';
 import 'package:intellij_tourism_designer/constants/location.dart';
 
+//信息查看模块
+
 class DataPage extends StatefulWidget {
   const DataPage({super.key});
 
@@ -135,7 +137,7 @@ class _DataPageState extends State<DataPage> {
         Container(
           width:size.width-150-(curState==1?180:0)-(curState==2?520:0)-(curState==3?320:0),
           height:size.height-48,
-          child:curState==4?CityStatsPage():MapWidget()
+          child:curState==4?CityStatsPage():DemoMap()
         )
       ]
     );
