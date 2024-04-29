@@ -57,6 +57,17 @@ class Weather {
   Weather({required this.time, required this.weather});
 }
 
+class Comment{
+  String UserName;
+  String Content;
+  DateTime time;
+  List<String> imageURL;
+
+  Comment({required this.UserName,required this.Content,required this.time,required this.imageURL});
+}
+
+
 Activity SampleAct=Activity(point:POI(),start:DateTime(2000),duration:Duration());
 Itinerary SampleIti=Itinerary(Name:"新建行程",WayPoint:[POI(),POI(),POI(),POI(),POI()],PathMode:[0,0,0,0],Activitices: [[SampleAct,SampleAct,SampleAct],[SampleAct,SampleAct,SampleAct],[SampleAct,SampleAct,SampleAct]],ImageURL:["assets/Sample.png","assets/Sample.png","assets/Sample.png"],weathers:[SampleWeather,SampleWeather,SampleWeather]);
 Weather SampleWeather=Weather(time:DateTime(2000),weather:"Sunny");
+Comment SampleCon=Comment(UserName:"User",Content:"好啊好啊",time:DateTime(2000),imageURL:["assets/Sample.png","assets/Sample.png","assets/Sample.png"]);

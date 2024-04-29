@@ -63,7 +63,7 @@ class _PathQueryWidgetState extends State<PathQueryWidget> {
           color:AppColors1.primaryColor,
           child:Column(
             children: [
-              Text("出行方式",style:AppText.text1),
+              Text("出行方式",style:AppText.bgStandard),
               Row(
                 children:[
                   TextButton(
@@ -102,7 +102,7 @@ class _PathQueryWidgetState extends State<PathQueryWidget> {
           color:AppColors1.primaryColor,
           child:Column(
             children: [
-              Text("策略",style:AppText.text1),
+              Text("策略",style:AppText.bgStandard),
               IndexedStack(
                 index:Transport,
                 children:[
@@ -132,7 +132,7 @@ class _PathQueryWidgetState extends State<PathQueryWidget> {
           )
         ),
         SizedBox(height:30),
-        Text("热门地点",style:AppText.text2),
+        Text("热门地点",style:AppText.pStandard),
         Container(
           height:300,
           child:POIList1()

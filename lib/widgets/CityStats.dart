@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:intellij_tourism_designer/widgets/DetailView.dart';
 import 'package:intellij_tourism_designer/constants/Themes.dart';
 
@@ -17,7 +18,8 @@ class _CityStatsPageState extends State<CityStatsPage> {
       children:<Widget>[
         Column(
           children:<Widget>[
-            Row()
+            Row(),
+            //BarChart(BarChartData())
           ]
         ),
         Column(

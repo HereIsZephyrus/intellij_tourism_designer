@@ -84,7 +84,7 @@ class _LoginPageState extends State<LoginPage> {
                                 decoration: InputDecoration(
                                     contentPadding: EdgeInsets.fromLTRB(16.0, 10.0, 16.0, 0),
                                     labelText: '用户名',
-                                    labelStyle:AppText.text3
+                                    labelStyle:AppText.Small
                                   ),
                                 ),
                                 SizedBox(height: 32),
@@ -94,7 +94,7 @@ class _LoginPageState extends State<LoginPage> {
                                   decoration: InputDecoration(
                                       contentPadding: EdgeInsets.fromLTRB(16.0, 10.0, 16.0,0),
                                       labelText: '密码',
-                                      labelStyle:AppText.text3
+                                      labelStyle:AppText.Small
                                   ),
                                 ),
                                 SizedBox(height: 22),

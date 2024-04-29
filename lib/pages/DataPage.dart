@@ -96,7 +96,7 @@ class _DataPageState extends State<DataPage> {
                           setState((){MapLayer[index]=newValue??false;});
                         }
                       ),
-                      Text("Map${index}",style:AppText.text3)
+                      Text("Map${index}",style:AppText.Small)
                     ],
                   ),
                 )
