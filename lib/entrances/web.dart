@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intellij_tourism_designer/pages/HomePage.dart';
 import 'package:intellij_tourism_designer/pages/LoginPage.dart';
+import 'package:intellij_tourism_designer/widgets/CityStats.dart';
 import 'package:intellij_tourism_designer/pages/UserPage.dart';
 import 'package:intellij_tourism_designer/constants/Themes.dart';
 
@@ -13,8 +14,9 @@ class WebApp extends StatelessWidget {
       title: "智能旅游规划助手",
       //theme:ThemeData(backgroundColor: Colors.white),
       routes: {
-        '/':(context) => const LoginPage(),
-        '/home': (context) => const HomePage(),
+        //'/':(context) => const LoginPage(),
+        //'/':(context) => const CityStatsPage(),
+        '/': (context) => const HomePage(),
         '/user':(context) => const UserPage(),
       },
     );

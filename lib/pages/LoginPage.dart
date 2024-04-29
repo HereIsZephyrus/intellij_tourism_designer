@@ -81,21 +81,21 @@ class _LoginPageState extends State<LoginPage> {
                               children:<Widget>[
                                 TextField(
                                 controller: _usernameController,
-                                decoration: InputDecoration(
+                                /*decoration: InputDecoration(
                                     contentPadding: EdgeInsets.fromLTRB(16.0, 10.0, 16.0, 0),
                                     labelText: '用户名',
                                     labelStyle:AppText.Small
-                                  ),
+                                  ),*/
                                 ),
                                 SizedBox(height: 32),
                                 TextField(
                                   controller: _passwordController,
                                   obscureText: true,
-                                  decoration: InputDecoration(
+                                  /*decoration: InputDecoration(
                                       contentPadding: EdgeInsets.fromLTRB(16.0, 10.0, 16.0,0),
                                       labelText: '密码',
                                       labelStyle:AppText.Small
-                                  ),
+                                  ),*/
                                 ),
                                 SizedBox(height: 22),
                                 Row(

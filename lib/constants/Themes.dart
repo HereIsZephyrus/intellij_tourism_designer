@@ -20,6 +20,7 @@ class AppText {
   static const TextStyle Standard = TextStyle(color:AppColors1.textColor,fontSize: 16);
   static const TextStyle Small = TextStyle(color:AppColors1.textColor,fontSize: 12);
   static const TextStyle Big = TextStyle(color:AppColors1.textColor,fontSize: 16);
+
 }
 
 class AppButton{
