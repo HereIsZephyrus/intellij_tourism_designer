@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'screens/mobile.dart';
-import 'screens/web.dart';
+//import 'entrances/mobile.dart';
+import 'entrances/web.dart';
 
-void main() {
-  runApp(const MoblieApp());
-  //runApp(const WebApp());
-}
+void main() => runApp(const WebApp());
+//void main() => runApp(const MoblieApp());
