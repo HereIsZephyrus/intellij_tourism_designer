@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:intellij_tourism_designer/pages/HomePage.dart';
-import 'package:intellij_tourism_designer/pages/LoginPage.dart';
-import 'package:intellij_tourism_designer/widgets/CityStats.dart';
-import 'package:intellij_tourism_designer/pages/UserPage.dart';
-import 'package:intellij_tourism_designer/constants/Themes.dart';
+import 'package:intellij_tourism_designer/pages/home_page.dart';
+import 'package:intellij_tourism_designer/pages/login_page.dart';
+import 'package:intellij_tourism_designer/pages/signup_page.dart';
+import 'package:intellij_tourism_designer/pages/user_page.dart';
+import 'package:intellij_tourism_designer/pages/edit_trace_page.dart';
+import 'package:intellij_tourism_designer/pages/pickup_page.dart';
 
 class WebApp extends StatelessWidget {
   const WebApp({super.key});
@@ -12,12 +13,17 @@ class WebApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "智能旅游规划助手",
-      //theme:ThemeData(backgroundColor: Colors.white),
+      theme: ThemeData(
+        useMaterial3: true,
+        colorSchemeSeed: const Color(0xff6750a4),
+      ),
+      home: const HomePage(),
       routes: {
-        //'/':(context) => const LoginPage(),
-        //'/':(context) => const CityStatsPage(),
-        '/': (context) => const HomePage(),
+        '/login':(context) => const LoginPage(),
+        '/signup':(context) => const SignUpPage(),
         '/user':(context) => const UserPage(),
+        '/main':(context) => const EditTracePage(),
+        '/generate':(context) => const PickUpPage(),
       },
     );
   }
