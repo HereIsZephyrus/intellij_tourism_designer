@@ -1,0 +1,1 @@
+/Users/channingtong/Program/intellij_tourism_designer/android/app/src/main/kotlin/com/example/intellij_tourism_designer/MainActivity.kt

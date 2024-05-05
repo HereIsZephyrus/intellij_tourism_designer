@@ -1,0 +1,56 @@
+-- Merging decision tree log ---
+application
+INJECTED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/main/AndroidManifest.xml:2:5-32:19
+	android:name
+		INJECTED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/main/AndroidManifest.xml
+manifest
+ADDED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/main/AndroidManifest.xml:1:1-44:12
+INJECTED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/main/AndroidManifest.xml:1:1-44:12
+INJECTED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/main/AndroidManifest.xml:1:1-44:12
+INJECTED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/main/AndroidManifest.xml:1:1-44:12
+MERGED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/main/AndroidManifest.xml:1:1-44:12
+INJECTED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/debug/AndroidManifest.xml:1:1-7:12
+INJECTED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/debug/AndroidManifest.xml:1:1-7:12
+INJECTED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/debug/AndroidManifest.xml:1:1-7:12
+	package
+		INJECTED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/main/AndroidManifest.xml:1:1-44:12
+		INJECTED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/debug/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/main/AndroidManifest.xml:1:1-44:12
+		INJECTED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/debug/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/main/AndroidManifest.xml:1:1-44:12
+		INJECTED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/debug/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/main/AndroidManifest.xml:1:11-69
+queries
+ADDED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/main/AndroidManifest.xml:38:5-43:15
+intent#action:name:android.intent.action.PROCESS_TEXT+data:mimeType:text/plain
+ADDED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/main/AndroidManifest.xml:39:9-42:18
+action#android.intent.action.PROCESS_TEXT
+ADDED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/main/AndroidManifest.xml:40:13-72
+	android:name
+		ADDED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/main/AndroidManifest.xml:40:21-70
+data
+ADDED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/main/AndroidManifest.xml:41:13-50
+	android:mimeType
+		ADDED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/main/AndroidManifest.xml:41:19-48
+uses-sdk
+INJECTED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/debug/AndroidManifest.xml
+INJECTED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/debug/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/debug/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/debug/AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/debug/AndroidManifest.xml:6:5-66
+	android:name
+		ADDED from /Users/channingtong/Program/intellij_tourism_designer/android/app/src/debug/AndroidManifest.xml:6:22-64
