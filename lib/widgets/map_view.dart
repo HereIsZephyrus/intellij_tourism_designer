@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:intellij_tourism_designer/constants/constants.dart';
@@ -147,7 +146,7 @@ class _PraticeState extends State<DemoMap>
                       MaterialButton(
                         //onPressed: () => _mapController.move(Location.wuhan, 7),
                         onPressed: () => _animatedMapMove(Location.wuhan, 7),
-                        child: const Text('武汉市'),
+                        child: const Text('武汉市公园绿地'),
                         ),
                     ] 
                   )
@@ -199,6 +198,19 @@ class _PraticeState extends State<DemoMap>
                     ),
                     children: [
                       map.map,
+                      /*
+                      OverlayImageLayer(
+                        overlayImages: [
+                          OverlayImage(
+                            bounds: LatLngBounds(
+                              const LatLng(30.03530016191824, 114.00827722384962),
+                              const LatLng(30.900356706821714, 114.79334182886498),
+                            ),
+                            opacity: 0.8,
+                            imageProvider: const NetworkImage("https://cdn.jsdelivr.net/gh/HereIsZephyrus/zephyrus.img/images/blog/WuhanParkShp.jpg"),
+                          ),
+                        ],
+                      ),*/
                       MarkerLayer(markers: _markers),
                       const FlutterMapZoomButtons(
                         maxZoom: MAXZOOM,

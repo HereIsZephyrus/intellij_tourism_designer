@@ -1,6 +1,5 @@
 import 'package:flutter_map/flutter_map.dart';
 import 'package:intellij_tourism_designer/constants/locations.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 
 class MarkerElement{
@@ -30,7 +29,7 @@ class MarkerElement{
         width: 40,
         height: 40,
         point: value,
-        child: const Icon(Icons.school_rounded,color: Color.fromARGB(255, 27, 6, 77),size: 30,), 
+        child: const Icon(Icons.double_arrow,color: Color.fromARGB(255, 27, 6, 77),size: 30,), 
       );
     });
     return dict;

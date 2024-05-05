@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:intellij_tourism_designer/widgets/map_view.dart';
+import 'package:intellij_tourism_designer/constants/theme.dart';
 class HomePage extends StatelessWidget {
+  /*
+  该应用的门户界面,用于软件介绍和demo演示和登录注册页面的跳转.登录后在个人中心界面进入编辑页面.
+  */
   static const String route = '/';
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
-      appBar: AppBar(
+      backgroundColor: AppColors1.backgroundColor,
+      appBar: AppBar( // 顶部导航栏
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         actions: [
           IconButton(
@@ -34,7 +38,7 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+          children: <Widget>[ //用于demo演示
             SizedBox(
               width: MediaQuery.of(context).size.width * 0.8,
               height: MediaQuery.of(context).size.height * 0.6,

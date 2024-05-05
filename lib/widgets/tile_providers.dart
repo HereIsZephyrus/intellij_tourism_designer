@@ -16,10 +16,10 @@ class TileMap{
   final TileLayer map;
   final TextSourceAttribution info;
 
-  TileMap(MapServiceProvider provider):
-    this.provider = provider,
-    this.map = _tileMap(provider),
-    this.info = _tileInfo(provider);}
+  TileMap(MapServiceProvider mapProvider):
+    provider = mapProvider,
+    map = _tileMap(mapProvider),
+    info = _tileInfo(mapProvider);}
 
 TextSourceAttribution _tileInfo(MapServiceProvider provider){
   TextSourceAttribution info;

@@ -17,13 +17,13 @@ class WebApp extends StatelessWidget {
         useMaterial3: true,
         colorSchemeSeed: const Color(0xff6750a4),
       ),
-      home: const HomePage(),
+      home: const HomePage(), // 网站起始界面
       routes: {
-        '/login':(context) => const LoginPage(),
-        '/signup':(context) => const SignUpPage(),
-        '/user':(context) => const UserPage(),
-        '/main':(context) => const EditTracePage(),
-        '/generate':(context) => const PickUpPage(),
+        '/login':(context) => const LoginPage(), // 登录界面
+        '/signup':(context) => const SignUpPage(), // 注册界面
+        '/user':(context) => const UserPage(), // 个人中心
+        '/main':(context) => const EditTracePage(), // 主编辑界面
+        '/generate':(context) => const PickUpPage(), // 行程导出界面
       },
     );
   }
