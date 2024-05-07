@@ -1,8 +1,0 @@
-com.example.intellij_tourism_designer.app-debug-0 /Users/channingtong/Program/intellij_tourism_designer/android/app/src/debug/res
-com.example.intellij_tourism_designer.app-main-1 /Users/channingtong/Program/intellij_tourism_designer/android/app/src/main/res
-com.example.intellij_tourism_designer.app-pngs-2 /Users/channingtong/Program/intellij_tourism_designer/build/app/generated/res/pngs/debug
-com.example.intellij_tourism_designer.app-resValues-3 /Users/channingtong/Program/intellij_tourism_designer/build/app/generated/res/resValues/debug
-com.example.intellij_tourism_designer.app-rs-4 /Users/channingtong/Program/intellij_tourism_designer/build/app/generated/res/rs/debug
-com.example.intellij_tourism_designer.app-mergeDebugResources-5 /Users/channingtong/Program/intellij_tourism_designer/build/app/intermediates/incremental/debug/mergeDebugResources/merged.dir
-com.example.intellij_tourism_designer.app-mergeDebugResources-6 /Users/channingtong/Program/intellij_tourism_designer/build/app/intermediates/incremental/debug/mergeDebugResources/stripped.dir
-com.example.intellij_tourism_designer.app-merged_res-7 /Users/channingtong/Program/intellij_tourism_designer/build/app/intermediates/merged_res/debug
