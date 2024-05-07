@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-
+/*
+* 行程编辑界面的侧边栏绘制
+*/
 class MenuDrawer extends StatelessWidget{
   final String currentRoute;
   

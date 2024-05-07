@@ -1,7 +1,9 @@
 import 'package:flutter_map/flutter_map.dart';
-import 'package:flutter_map_cancellable_tile_provider/flutter_map_cancellable_tile_provider.dart';
 import 'package:url_launcher/url_launcher.dart';
-
+import 'package:flutter_map_cancellable_tile_provider/flutter_map_cancellable_tile_provider.dart';
+/*
+ * 用于封装瓦片地图服务
+ */
 enum MapServiceProvider {
   osm,
   google,
@@ -11,7 +13,7 @@ enum MapServiceProvider {
   gaode,
 }
 
-class TileMap{
+class TileMap{//瓦片地图封装类
   final MapServiceProvider provider;
   final TileLayer map;
   final TextSourceAttribution info;
@@ -21,6 +23,46 @@ class TileMap{
     map = _tileMap(mapProvider),
     info = _tileInfo(mapProvider);
 }
+
+
+//瓦片地图服务商实例化
+TileLayer get openStreetMapTileLayer => TileLayer(
+      urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+      userAgentPackageName: 'intellij_tourism_designer',
+      // Use the recommended flutter_map_cancellable_tile_provider package to
+      // support the cancellation of loading tiles.
+      tileProvider: CancellableNetworkTileProvider(),
+    );
+
+TileLayer get googleTileLayer => TileLayer(
+      urlTemplate: 'https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',
+      userAgentPackageName: 'intellij_tourism_designer',
+      tileProvider: CancellableNetworkTileProvider(),
+    );
+
+TileLayer get baiduTileLayer => TileLayer(
+      urlTemplate: 'https://api.map.baidu.com/customimage/tile?x={x}&y={y}&z={z}',
+      userAgentPackageName: 'intellij_tourism_designer',
+      tileProvider: CancellableNetworkTileProvider(),
+    );
+
+TileLayer get mapboxTileLayer => TileLayer(
+      urlTemplate: 'https://api.mapbox.com/v4/mapbox.mapbox-streets-v8/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw',
+      userAgentPackageName: 'intellij_tourism_designer',
+      tileProvider: CancellableNetworkTileProvider(),
+    );
+  
+TileLayer get tiandituTileLayer => TileLayer(
+      urlTemplate: 'http://t0.tianditu.gov.cn/img_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=img&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&tk=7293b0825c52ef16081a15ce8dfd0b46',
+      userAgentPackageName: 'intellij_tourism_designer',
+      tileProvider: CancellableNetworkTileProvider(),
+    );
+
+TileLayer get gaodeTileLayer => TileLayer(
+      urlTemplate: 'https://webrd02.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}',
+      userAgentPackageName: 'intellij_tourism_designer',
+      tileProvider: CancellableNetworkTileProvider(),
+    );
 
 TextSourceAttribution _tileInfo(MapServiceProvider provider){
   TextSourceAttribution info;
@@ -94,42 +136,3 @@ TileLayer _tileMap(MapServiceProvider provider) {
     }
     return tileLayer;
   }
-
-//TextSourceAttribution 
-TileLayer get openStreetMapTileLayer => TileLayer(
-      urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-      userAgentPackageName: 'intellij_tourism_designer',
-      // Use the recommended flutter_map_cancellable_tile_provider package to
-      // support the cancellation of loading tiles.
-      tileProvider: CancellableNetworkTileProvider(),
-    );
-
-TileLayer get googleTileLayer => TileLayer(
-      urlTemplate: 'https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',
-      userAgentPackageName: 'intellij_tourism_designer',
-      tileProvider: CancellableNetworkTileProvider(),
-    );
-
-TileLayer get baiduTileLayer => TileLayer(
-      urlTemplate: 'https://api.map.baidu.com/customimage/tile?x={x}&y={y}&z={z}',
-      userAgentPackageName: 'intellij_tourism_designer',
-      tileProvider: CancellableNetworkTileProvider(),
-    );
-
-TileLayer get mapboxTileLayer => TileLayer(
-      urlTemplate: 'https://api.mapbox.com/v4/mapbox.mapbox-streets-v8/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw',
-      userAgentPackageName: 'intellij_tourism_designer',
-      tileProvider: CancellableNetworkTileProvider(),
-    );
-  
-TileLayer get tiandituTileLayer => TileLayer(
-      urlTemplate: 'http://t0.tianditu.gov.cn/img_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=img&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&tk=7293b0825c52ef16081a15ce8dfd0b46',
-      userAgentPackageName: 'intellij_tourism_designer',
-      tileProvider: CancellableNetworkTileProvider(),
-    );
-
-TileLayer get gaodeTileLayer => TileLayer(
-      urlTemplate: 'https://webrd02.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}',
-      userAgentPackageName: 'intellij_tourism_designer',
-      tileProvider: CancellableNetworkTileProvider(),
-    );

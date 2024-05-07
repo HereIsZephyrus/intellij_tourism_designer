@@ -1,8 +1,10 @@
 import 'package:flutter_map/flutter_map.dart';
 import 'package:intellij_tourism_designer/constants/locations.dart';
 import 'package:flutter/material.dart';
-
-class MarkerElement{
+/*
+* 制作存储各级图斑
+*/
+class MarkerElement{//制作图斑要素
   static const Marker nanwangshan = Marker(
     width: 80,
     height: 80,
@@ -36,12 +38,12 @@ class MarkerElement{
   }
 }
 
-enum MarkerLevel{
+enum MarkerLevel{//划分显示图斑的等级与样式
     normal,
     none,
     detailed,
   }
-class MarkerList{
+class MarkerList{//制作图斑组
   static List<Marker> normalBookmark = [
     MarkerElement.nanwangshan,
     MarkerElement.weilaicheng,

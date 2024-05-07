@@ -1,3 +1,6 @@
+/*
+* 一些存储下来的GeoJSON内容
+*/
 const buildingGeoJSON = '''
 {
   "type": "FeatureCollection",
