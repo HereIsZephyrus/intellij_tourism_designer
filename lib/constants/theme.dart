@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-
+/*
+* 制作主题颜色
+*/
 class AppColors1 {
   AppColors1._();
 

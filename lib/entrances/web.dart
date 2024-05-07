@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:intellij_tourism_designer/pages/home_page.dart';
+import 'package:intellij_tourism_designer/pages/user_page.dart';
 import 'package:intellij_tourism_designer/pages/login_page.dart';
 import 'package:intellij_tourism_designer/pages/signup_page.dart';
-import 'package:intellij_tourism_designer/pages/user_page.dart';
-import 'package:intellij_tourism_designer/pages/edit_trace_page.dart';
 import 'package:intellij_tourism_designer/pages/pickup_page.dart';
-
+import 'package:intellij_tourism_designer/models/data_model.dart';
+import 'package:intellij_tourism_designer/pages/edit_trace_page.dart';
 class WebApp extends StatelessWidget {
   const WebApp({super.key});
 
@@ -17,12 +18,15 @@ class WebApp extends StatelessWidget {
         useMaterial3: true,
         colorSchemeSeed: const Color(0xff6750a4),
       ),
-      home: const HomePage(), // 网站起始界面
+      home: ChangeNotifierProvider(
+        create: (_) => ShareDataPage(),
+        child: EditTracePage(),
+      ), // 网站起始界面
       routes: {
         '/login':(context) => const LoginPage(), // 登录界面
         '/signup':(context) => const SignUpPage(), // 注册界面
         '/user':(context) => const UserPage(), // 个人中心
-        '/main':(context) => const EditTracePage(), // 主编辑界面
+        //'/main':(context) => const EditTracePage(), // 主编辑界面
         '/generate':(context) => const PickUpPage(), // 行程导出界面
       },
     );

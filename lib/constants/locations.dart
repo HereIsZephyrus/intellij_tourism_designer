@@ -1,5 +1,7 @@
 import 'package:latlong2/latlong.dart';
-
+/*
+* 存储POI坐标
+*/
 class Location {
   static const LatLng nanwangshan = LatLng(30.5236,114.3978);
   static const LatLng weilaicheng = LatLng(30.45996,114.61297);
