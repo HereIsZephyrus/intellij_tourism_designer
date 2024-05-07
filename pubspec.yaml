@@ -45,6 +45,8 @@ dependencies:
   latlong2: ^0.9.1
   url_launcher: ^6.2.5
   flutter_map_cancellable_tile_provider: ^2.0.0
+  flutter_map_geojson: ^1.0.8
+  logger: ^2.2.0
 
 dev_dependencies:
   flutter_test:
@@ -69,7 +71,9 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
+  assets:
+    - assets/json/
+    - assets/imgs/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

@@ -1,25 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:latlong2/latlong.dart';
+import 'package:intellij_tourism_designer/widgets/geojson_providers.dart';
 import 'package:intellij_tourism_designer/constants/constants.dart';
 import 'package:intellij_tourism_designer/constants/locations.dart';
-import 'package:latlong2/latlong.dart';
-import 'package:intellij_tourism_designer/widgets/tile_providers.dart';
 import 'package:intellij_tourism_designer/constants/markers.dart';
+import 'package:intellij_tourism_designer/constants/geojson.dart';
+import 'package:intellij_tourism_designer/widgets/tile_providers.dart';
 import 'package:intellij_tourism_designer/widgets/zoom_button.dart';
 class DemoMap extends StatefulWidget {
   const DemoMap({super.key});
   @override
   State<DemoMap> createState() => _PraticeState();
 }
-class _PraticeState extends State<DemoMap> 
-  with TickerProviderStateMixin{
+
+class _PraticeState extends State<DemoMap>  with TickerProviderStateMixin{
   static const _startedId = 'AnimatedMapController#MoveStarted';
   static const _inProgressId = 'AnimatedMapController#MoveInProgress';
   static const _finishedId = 'AnimatedMapController#MoveFinished';
   late final MapController _mapController;
   TileMap map = TileMap(MapServiceProvider.osm); // The map here is a state.
   late var _markers = MarkerList.normalBookmark;
-  
   bool _isDetail = false;
   void _changeMapProviderProvider(MapServiceProvider provider) {
     setState(() {
@@ -119,6 +120,7 @@ class _PraticeState extends State<DemoMap>
                           setState(() {
                             if (_isDetail) {
                               _changeBookmarkLevel(MarkerLevel.normal);
+                              
                             }
                             else{
                               _changeBookmarkLevel(MarkerLevel.detailed);
@@ -198,6 +200,9 @@ class _PraticeState extends State<DemoMap>
                     ),
                     children: [
                       map.map,
+                      if (_isDetail)polygonsGeoJSON.mapFeature(buildingGeoJSON),
+                      if (_isDetail)pointsGeoJSON.mapFeature(entranceGeoJSON),
+                      if (_isDetail)polylinesGeoJSON.mapFeature(roadGeoJSON),
                       /*
                       OverlayImageLayer(
                         overlayImages: [
@@ -211,6 +216,7 @@ class _PraticeState extends State<DemoMap>
                           ),
                         ],
                       ),*/
+                      
                       MarkerLayer(markers: _markers),
                       const FlutterMapZoomButtons(
                         maxZoom: MAXZOOM,
@@ -243,7 +249,3 @@ class _PraticeState extends State<DemoMap>
     );
   }
 }
-
-/*
- 
-*/

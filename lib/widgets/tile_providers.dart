@@ -19,7 +19,8 @@ class TileMap{
   TileMap(MapServiceProvider mapProvider):
     provider = mapProvider,
     map = _tileMap(mapProvider),
-    info = _tileInfo(mapProvider);}
+    info = _tileInfo(mapProvider);
+}
 
 TextSourceAttribution _tileInfo(MapServiceProvider provider){
   TextSourceAttribution info;
