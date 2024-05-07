@@ -12,12 +12,13 @@ class CityFeatureStackBarChart extends StatefulWidget {
   const CityFeatureStackBarChart({super.key});
 
   @override
-  State<CityFeatureStackBarChart> createState() => _CityFeatureStackBarChartState();
+  State<CityFeatureStackBarChart> createState() =>
+      _CityFeatureStackBarChartState();
 }
 
 class _CityFeatureStackBarChartState extends State<CityFeatureStackBarChart> {
   static const double barWidth = 22;
-  static const shadowOpacity = 0.2;
+  //static const shadowOpacity = 0.2;
   static const List<List<double>> mainItems = [
     [2, 3, 2.5, 8],
     [1.8, 2.7, 3, 6.5],
@@ -32,54 +33,46 @@ class _CityFeatureStackBarChartState extends State<CityFeatureStackBarChart> {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 1,
-      child:BarChart(
-        BarChartData(
-          alignment:BarChartAlignment.start,
-          groupsSpace: 12,
-          barGroups:List.generate(7, (index) =>
-            generateGroup(index,mainItems[index])
-          ),
-          titlesData: FlTitlesData(
-            bottomTitles: AxisTitles(
-              axisNameWidget:Icon(Icons.ac_unit,color:AppColors1.primaryColor),
-              sideTitles:SideTitles(
-                showTitles:true,
-                getTitlesWidget: getTitles,
-                reservedSize: 5,
-              )
-            ),
-              topTitles:AxisTitles(
-                  sideTitles:SideTitles(
-                      reservedSize:30,
-                      showTitles:false
-                  )
-              )
-          )
-        )
-      )
-    );
+        aspectRatio: 1,
+        child: BarChart(BarChartData(
+            alignment: BarChartAlignment.start,
+            groupsSpace: 12,
+            barGroups: List.generate(
+                7, (index) => generateGroup(index, mainItems[index])),
+            titlesData: FlTitlesData(
+                bottomTitles: AxisTitles(
+                    axisNameWidget: const Icon(Icons.ac_unit,
+                        color: AppColors1.primaryColor),
+                    sideTitles: SideTitles(
+                      showTitles: true,
+                      getTitlesWidget: getTitles,
+                      reservedSize: 5,
+                    )),
+                topTitles: const AxisTitles(
+                    sideTitles:
+                        SideTitles(reservedSize: 30, showTitles: false))))));
   }
 
-  BarChartGroupData generateGroup(int x, List<double> data){
-    final sum =data.fold(0.0 ,(previousValue, element) => previousValue + element);
+  BarChartGroupData generateGroup(int x, List<double> data) {
+    final sum =
+        data.fold(0.0, (previousValue, element) => previousValue + element);
     return BarChartGroupData(
-      x:0,
-      groupVertically:false,
-      //showingTooltipIndicators: isTouched ? [0] : [],
-      barRods:[
-        BarChartRodData(
-          toY: sum,
-          width: barWidth,
-          rodStackItems:[
-            BarChartRodStackItem(0,data[0],AppColors1.textColor),
-            BarChartRodStackItem(data[0],data[0]+data[1],AppColors1.primaryColor),
-            BarChartRodStackItem(data[0]+data[1],data[0]+data[1]+data[2],AppColors1.primaryColor2),
-            BarChartRodStackItem(data[0]+data[1]+data[2],data[0]+data[1]+data[2]+data[3],AppColors1.primaryColor3),
-          ]
-        )
-      ]
-    );
+        x: 0,
+        groupVertically: false,
+        //showingTooltipIndicators: isTouched ? [0] : [],
+        barRods: [
+          BarChartRodData(toY: sum, width: barWidth, rodStackItems: [
+            BarChartRodStackItem(0, data[0], AppColors1.textColor),
+            BarChartRodStackItem(
+                data[0], data[0] + data[1], AppColors1.primaryColor),
+            BarChartRodStackItem(data[0] + data[1], data[0] + data[1] + data[2],
+                AppColors1.primaryColor2),
+            BarChartRodStackItem(
+                data[0] + data[1] + data[2],
+                data[0] + data[1] + data[2] + data[3],
+                AppColors1.primaryColor3),
+          ])
+        ]);
   }
 
   Widget getTitles(double value, TitleMeta meta) {
@@ -87,21 +80,17 @@ class _CityFeatureStackBarChartState extends State<CityFeatureStackBarChart> {
   }
 }
 
-
-
-
-
 class BarChartSample1 extends StatefulWidget {
-  BarChartSample1({super.key});
+  const BarChartSample1({super.key});
 
   List<Color> get availableColors => const <Color>[
-    AppColors1.backgroundColor,
-    AppColors1.textColor,
-    AppColors1.primaryColor,
-    AppColors1.accentColor,
-    AppColors1.accentColor,
-    AppColors1.primaryColor2,
-  ];
+        AppColors1.backgroundColor,
+        AppColors1.textColor,
+        AppColors1.primaryColor,
+        AppColors1.accentColor,
+        AppColors1.accentColor,
+        AppColors1.primaryColor2,
+      ];
 
   final Color barBackgroundColor = AppColors1.textColor;
   final Color barColor = AppColors1.primaryColor3;
@@ -129,10 +118,24 @@ class BarChartSample1State extends State<BarChartSample1> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                const Text('Mingguan', style: TextStyle(color: AppColors1.primaryColor, fontSize: 24, fontWeight: FontWeight.bold,)),
-                const SizedBox(height: 4,),
-                Text('Grafik konsumsi kalori', style: TextStyle(color: AppColors1.textColor, fontSize: 18, fontWeight: FontWeight.bold,)),
-                const SizedBox(height: 38,),
+                const Text('Mingguan',
+                    style: TextStyle(
+                      color: AppColors1.primaryColor,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    )),
+                const SizedBox(
+                  height: 4,
+                ),
+                Text('Grafik konsumsi kalori',
+                    style: TextStyle(
+                      color: AppColors1.textColor,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    )),
+                const SizedBox(
+                  height: 38,
+                ),
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -153,10 +156,17 @@ class BarChartSample1State extends State<BarChartSample1> {
             child: Align(
               alignment: Alignment.topRight,
               child: IconButton(
-                icon: Icon(isPlaying ? Icons.pause : Icons.play_arrow, color: AppColors1.textColor,),
-                onPressed: () {setState(() {
+                icon: Icon(
+                  isPlaying ? Icons.pause : Icons.play_arrow,
+                  color: AppColors1.textColor,
+                ),
+                onPressed: () {
+                  setState(() {
                     isPlaying = !isPlaying;
-                    if (isPlaying) {refreshState();}});
+                    if (isPlaying) {
+                      refreshState();
+                    }
+                  });
                 },
               ),
             ),
@@ -167,10 +177,13 @@ class BarChartSample1State extends State<BarChartSample1> {
   }
 
   BarChartGroupData makeGroupData(
-      int x,
-      double y,
-      {bool isTouched = false, Color? barColor, double width = 22, List<int> showTooltips = const [],}
-  ){
+    int x,
+    double y, {
+    bool isTouched = false,
+    Color? barColor,
+    double width = 22,
+    List<int> showTooltips = const [],
+  }) {
     barColor ??= widget.barColor;
     return BarChartGroupData(
       x: x,
@@ -180,7 +193,7 @@ class BarChartSample1State extends State<BarChartSample1> {
           color: isTouched ? widget.touchedBarColor : barColor,
           width: width,
           borderSide: isTouched
-              ? BorderSide(color: AppColors1.textColor)
+              ? const BorderSide(color: AppColors1.textColor)
               : const BorderSide(color: Colors.white, width: 0),
           backDrawRodData: BackgroundBarChartRodData(
             show: true,
@@ -194,25 +207,25 @@ class BarChartSample1State extends State<BarChartSample1> {
   }
 
   List<BarChartGroupData> showingGroups() => List.generate(7, (i) {
-    switch (i) {
-      case 0:
-        return makeGroupData(0, 5, isTouched: i == touchedIndex);
-      case 1:
-        return makeGroupData(1, 6.5, isTouched: i == touchedIndex);
-      case 2:
-        return makeGroupData(2, 5, isTouched: i == touchedIndex);
-      case 3:
-        return makeGroupData(3, 7.5, isTouched: i == touchedIndex);
-      case 4:
-        return makeGroupData(4, 9, isTouched: i == touchedIndex);
-      case 5:
-        return makeGroupData(5, 11.5, isTouched: i == touchedIndex);
-      case 6:
-        return makeGroupData(6, 6.5, isTouched: i == touchedIndex);
-      default:
-        return throw Error();
-    }
-  });
+        switch (i) {
+          case 0:
+            return makeGroupData(0, 5, isTouched: i == touchedIndex);
+          case 1:
+            return makeGroupData(1, 6.5, isTouched: i == touchedIndex);
+          case 2:
+            return makeGroupData(2, 5, isTouched: i == touchedIndex);
+          case 3:
+            return makeGroupData(3, 7.5, isTouched: i == touchedIndex);
+          case 4:
+            return makeGroupData(4, 9, isTouched: i == touchedIndex);
+          case 5:
+            return makeGroupData(5, 11.5, isTouched: i == touchedIndex);
+          case 6:
+            return makeGroupData(6, 6.5, isTouched: i == touchedIndex);
+          default:
+            return throw Error();
+        }
+      });
 
   BarChartData mainBarData() {
     return BarChartData(
@@ -224,29 +237,51 @@ class BarChartSample1State extends State<BarChartSample1> {
           getTooltipItem: (group, groupIndex, rod, rodIndex) {
             String weekDay;
             switch (group.x) {
-              case 0:weekDay = 'Monday';break;
-              case 1:weekDay = 'Tuesday';break;
-              case 2:weekDay = 'Wednesday';break;
-              case 3:weekDay = 'Thursday';break;
-              case 4:weekDay = 'Friday';break;
-              case 5:weekDay = 'Saturday';break;
-              case 6:weekDay = 'Sunday';break;
-              default:throw Error();
+              case 0:
+                weekDay = 'Monday';
+                break;
+              case 1:
+                weekDay = 'Tuesday';
+                break;
+              case 2:
+                weekDay = 'Wednesday';
+                break;
+              case 3:
+                weekDay = 'Thursday';
+                break;
+              case 4:
+                weekDay = 'Friday';
+                break;
+              case 5:
+                weekDay = 'Saturday';
+                break;
+              case 6:
+                weekDay = 'Sunday';
+                break;
+              default:
+                throw Error();
             }
             return BarTooltipItem(
               '$weekDay\n',
-              const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18,),
+              const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
               children: <TextSpan>[
                 TextSpan(
                   text: (rod.toY - 1).toString(),
-                  style: const TextStyle(color: Colors.white, //widget.touchedBarColor,fontSize: 16,fontWeight: FontWeight.w500,),
-                ),
+                  style: const TextStyle(
+                    color: Colors
+                        .white, //widget.touchedBarColor,fontSize: 16,fontWeight: FontWeight.w500,),
+                  ),
                 )
               ],
             );
           },
         ),
-        touchCallback: (FlTouchEvent event, barTouchResponse) {setState(() {
+        touchCallback: (FlTouchEvent event, barTouchResponse) {
+          setState(() {
             if (!event.isInterestedForInteractions ||
                 barTouchResponse == null ||
                 barTouchResponse.spot == null) {
@@ -278,14 +313,20 @@ class BarChartSample1State extends State<BarChartSample1> {
           ),
         ),
       ),
-      borderData: FlBorderData(show: false,),
+      borderData: FlBorderData(
+        show: false,
+      ),
       barGroups: showingGroups(),
       gridData: const FlGridData(show: false),
     );
   }
 
   Widget getTitles(double value, TitleMeta meta) {
-    const style = TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14,);
+    const style = TextStyle(
+      color: Colors.white,
+      fontWeight: FontWeight.bold,
+      fontSize: 14,
+    );
     Widget text;
     switch (value.toInt()) {
       case 0:
@@ -356,19 +397,54 @@ class BarChartSample1State extends State<BarChartSample1> {
       barGroups: List.generate(7, (i) {
         switch (i) {
           case 0:
-            return makeGroupData(0, Random().nextInt(15).toDouble() + 6, barColor: widget.availableColors[Random().nextInt(widget.availableColors.length)],);
+            return makeGroupData(
+              0,
+              Random().nextInt(15).toDouble() + 6,
+              barColor: widget.availableColors[
+                  Random().nextInt(widget.availableColors.length)],
+            );
           case 1:
-            return makeGroupData(1, Random().nextInt(15).toDouble() + 6, barColor: widget.availableColors[Random().nextInt(widget.availableColors.length)],);
+            return makeGroupData(
+              1,
+              Random().nextInt(15).toDouble() + 6,
+              barColor: widget.availableColors[
+                  Random().nextInt(widget.availableColors.length)],
+            );
           case 2:
-            return makeGroupData(2, Random().nextInt(15).toDouble() + 6, barColor: widget.availableColors[Random().nextInt(widget.availableColors.length)],);
+            return makeGroupData(
+              2,
+              Random().nextInt(15).toDouble() + 6,
+              barColor: widget.availableColors[
+                  Random().nextInt(widget.availableColors.length)],
+            );
           case 3:
-            return makeGroupData(3, Random().nextInt(15).toDouble() + 6, barColor: widget.availableColors[Random().nextInt(widget.availableColors.length)],);
+            return makeGroupData(
+              3,
+              Random().nextInt(15).toDouble() + 6,
+              barColor: widget.availableColors[
+                  Random().nextInt(widget.availableColors.length)],
+            );
           case 4:
-            return makeGroupData(4, Random().nextInt(15).toDouble() + 6, barColor: widget.availableColors[Random().nextInt(widget.availableColors.length)],);
+            return makeGroupData(
+              4,
+              Random().nextInt(15).toDouble() + 6,
+              barColor: widget.availableColors[
+                  Random().nextInt(widget.availableColors.length)],
+            );
           case 5:
-            return makeGroupData(5, Random().nextInt(15).toDouble() + 6, barColor: widget.availableColors[Random().nextInt(widget.availableColors.length)],);
+            return makeGroupData(
+              5,
+              Random().nextInt(15).toDouble() + 6,
+              barColor: widget.availableColors[
+                  Random().nextInt(widget.availableColors.length)],
+            );
           case 6:
-            return makeGroupData(6, Random().nextInt(15).toDouble() + 6, barColor: widget.availableColors[Random().nextInt(widget.availableColors.length)],);
+            return makeGroupData(
+              6,
+              Random().nextInt(15).toDouble() + 6,
+              barColor: widget.availableColors[
+                  Random().nextInt(widget.availableColors.length)],
+            );
           default:
             return throw Error();
         }

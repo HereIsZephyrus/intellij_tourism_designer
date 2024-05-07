@@ -27,7 +27,7 @@ class DataPage extends StatefulWidget {
 
 class _DataPageState extends State<DataPage> {
   List<bool> MapLayer = List.generate(7, (index) => false);
-  POI CurPOI = POI();
+  POI curPOI = POI();
   FeatureState curState = FeatureState.thematicMaps;
 
   List<Widget> featureButtonBar() {
@@ -61,8 +61,8 @@ class _DataPageState extends State<DataPage> {
       width: 150,
       height: 42,
       child: TextButton(
-          child: Text(name),
           style: curState == state ? AppButton.button2 : AppButton.button1,
+          child: Text(name),
           onPressed: () {
             setState(() {
               curState = state;
@@ -108,9 +108,9 @@ class _DataPageState extends State<DataPage> {
                       selector: (BuildContext context, ShareDataPage model) =>
                           model.curPOI,
                       builder:
-                          (BuildContext context, POI CurPOI, Widget? child) {
+                          (BuildContext context, POI curPOI, Widget? child) {
                         return Stack(children: [
-                          POICard1(poi: CurPOI),
+                          POICard1(poi: curPOI),
                           TextButton(
                               onPressed: () {
                                 Provider.of<ShareDataPage>(context,
@@ -143,7 +143,7 @@ class _DataPageState extends State<DataPage> {
               (curState == FeatureState.infrestructureCheck ? 520 : 0) -
               (curState == FeatureState.pathQuery ? 320 : 0),
           height: size.height - 48,
-          child: DemoMap(),
+          child: const DemoMap(),
         );
     }
   }

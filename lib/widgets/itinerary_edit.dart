@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:intellij_tourism_designer/constants/theme.dart';
 import 'package:intellij_tourism_designer/models/data_model.dart';
-import 'package:intellij_tourism_designer/helpers/POI_builder.dart';
+import 'package:intellij_tourism_designer/constants/constants.dart';
 import 'package:intellij_tourism_designer/widgets/detail_view.dart';
+import 'package:intellij_tourism_designer/helpers/itinerary_builder.dart';
+//import 'package:intellij_tourism_designer/helpers/POI_builder.dart';
 
 //编辑行程
 

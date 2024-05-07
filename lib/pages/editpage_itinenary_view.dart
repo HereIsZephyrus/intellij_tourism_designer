@@ -1,14 +1,15 @@
-import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 import 'package:intellij_tourism_designer/constants/theme.dart';
 import 'package:intellij_tourism_designer/widgets/map_view.dart';
 import 'package:intellij_tourism_designer/models/data_model.dart';
-import 'package:intellij_tourism_designer/helpers/POI_builder.dart';
 import 'package:intellij_tourism_designer/widgets/detail_view.dart';
 import 'package:intellij_tourism_designer/widgets/itinerary_edit.dart';
 import 'package:intellij_tourism_designer/widgets/itinerary_feature.dart';
+import 'package:intellij_tourism_designer/helpers/itinerary_builder.dart';
+//import 'package:flutter/cupertino.dart';
+//import 'package:intellij_tourism_designer/constants/constants.dart';
+//import 'package:intellij_tourism_designer/helpers/POI_builder.dart';
 
 //行程规划模块
 

@@ -19,7 +19,7 @@ class _CityStatsPageState extends State<CityStatsPage> {
     return Container(
       height:400,
       width:500,
-      child:CityFeatureStackBarChart()
+      child:const CityFeatureStackBarChart()
     );
   }
 }

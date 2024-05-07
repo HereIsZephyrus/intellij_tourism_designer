@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:intellij_tourism_designer/constants/constants.dart';
 import 'package:intellij_tourism_designer/helpers/POI_builder.dart';
+import 'package:intellij_tourism_designer/helpers/itinerary_builder.dart';
 
 class ShareDataPage extends ChangeNotifier {
   POI curPOI=POI();

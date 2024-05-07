@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:intellij_tourism_designer/constants/theme.dart';
 import 'package:intellij_tourism_designer/models/data_model.dart';
+import 'package:intellij_tourism_designer/constants/constants.dart';
 import 'package:intellij_tourism_designer/helpers/POI_builder.dart';
+import 'package:intellij_tourism_designer/helpers/itinerary_builder.dart';
 
 //细节信息的展示卡片
 
@@ -28,7 +30,8 @@ class _POICard1State extends State<POICard1> {
   Widget build(BuildContext context) {
     return Column(
         children:<Widget>[
-          SizedBox(height:1),
+          const SizedBox(height:1),
+          //SizedBox(height:1),
           Image(image: AssetImage(poi.ImageURL)),
           Container(
             height:400,
@@ -36,18 +39,18 @@ class _POICard1State extends State<POICard1> {
               children:<Widget>[
                 Row(
                   children:<Widget>[
-                    Icon(Icons.ice_skating),
+                    const Icon(Icons.ice_skating),
                     Text(poi.Name)
                   ]
                 ),
                 //Text(_facility["info"]),
-                Text("评分"),
-                Text(""),
-                Divider(color:AppColors1.primaryColor, height:50, thickness:3, indent:30, endIndent:30),
+                const Text("评分"),
+                const Text(""),
+                const Divider(color:AppColors1.primaryColor, height:50, thickness:3, indent:30, endIndent:30),
                 TextButton(
                   onPressed:(){setState(() {myCom.add(SampleCon);});},
-                  child:Icon(Icons.add),
-                  style:AppButton.button2
+                  style:AppButton.button2,
+                  child:const Icon(Icons.add),
                 ),
                 Container(
                   height:300,
@@ -69,10 +72,6 @@ class _POICard1State extends State<POICard1> {
     );
   }
 }
-
-
-
-
 
 
 class POICard2 extends StatefulWidget {
@@ -104,15 +103,15 @@ class _POICard2State extends State<POICard2> {
                   children:<Widget>[
                     Row(
                         children:<Widget>[
-                          Icon(Icons.ice_skating),
+                          const Icon(Icons.ice_skating),
                           Text(poi.Name),
                           TextButton(
                             onPressed:(){
-                              Provider.of<ShareDataPage>(context, listen: false).ChangePOI(this.poi);
+                              Provider.of<ShareDataPage>(context, listen: false).ChangePOI(poi);
                               Provider.of<ShareDataPage>(context, listen: false).ChangeDetailed(true);
                             },
-                            child:Icon(Icons.add),
-                            style:AppButton.button1
+                            style:AppButton.button1,
+                            child:const Icon(Icons.add),
                           )
                         ]
                     ),

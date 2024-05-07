@@ -5,8 +5,8 @@ import 'package:intellij_tourism_designer/pages/user_page.dart';
 import 'package:intellij_tourism_designer/pages/login_page.dart';
 import 'package:intellij_tourism_designer/pages/signup_page.dart';
 import 'package:intellij_tourism_designer/pages/pickup_page.dart';
-import 'package:intellij_tourism_designer/pages/edit_trace_page.dart';
 import 'package:intellij_tourism_designer/models/data_model.dart';
+import 'package:intellij_tourism_designer/pages/edit_trace_page.dart';
 class WebApp extends StatelessWidget {
   const WebApp({super.key});
 
