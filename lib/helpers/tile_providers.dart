@@ -1,6 +1,7 @@
 import 'package:flutter_map/flutter_map.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_map_cancellable_tile_provider/flutter_map_cancellable_tile_provider.dart';
+
 /*
  * 用于封装瓦片地图服务
  */
@@ -13,17 +14,17 @@ enum MapServiceProvider {
   gaode,
 }
 
-class TileMap{//瓦片地图封装类
+class TileMap {
+  //瓦片地图封装类
   final MapServiceProvider provider;
   final TileLayer map;
   final TextSourceAttribution info;
 
-  TileMap(MapServiceProvider mapProvider):
-    provider = mapProvider,
-    map = _tileMap(mapProvider),
-    info = _tileInfo(mapProvider);
+  TileMap(MapServiceProvider mapProvider)
+      : provider = mapProvider,
+        map = _tileMap(mapProvider),
+        info = _tileInfo(mapProvider);
 }
-
 
 //瓦片地图服务商实例化
 TileLayer get openStreetMapTileLayer => TileLayer(
@@ -41,42 +42,49 @@ TileLayer get googleTileLayer => TileLayer(
     );
 
 TileLayer get baiduTileLayer => TileLayer(
-      urlTemplate: 'https://api.map.baidu.com/customimage/tile?x={x}&y={y}&z={z}',
+      urlTemplate:
+          'https://api.map.baidu.com/customimage/tile?x={x}&y={y}&z={z}',
       userAgentPackageName: 'intellij_tourism_designer',
       tileProvider: CancellableNetworkTileProvider(),
     );
 
 TileLayer get mapboxTileLayer => TileLayer(
-      urlTemplate: 'https://api.mapbox.com/v4/mapbox.mapbox-streets-v8/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw',
+      urlTemplate:
+          'https://api.mapbox.com/v4/mapbox.mapbox-streets-v8/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw',
       userAgentPackageName: 'intellij_tourism_designer',
       tileProvider: CancellableNetworkTileProvider(),
     );
-  
+
 TileLayer get tiandituTileLayer => TileLayer(
-      urlTemplate: 'http://t0.tianditu.gov.cn/img_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=img&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&tk=7293b0825c52ef16081a15ce8dfd0b46',
+      urlTemplate:
+          'http://t0.tianditu.gov.cn/img_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=img&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&tk=7293b0825c52ef16081a15ce8dfd0b46',
       userAgentPackageName: 'intellij_tourism_designer',
       tileProvider: CancellableNetworkTileProvider(),
     );
 
 TileLayer get gaodeTileLayer => TileLayer(
-      urlTemplate: 'https://webrd02.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}',
+      urlTemplate:
+          'https://webrd02.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}',
       userAgentPackageName: 'intellij_tourism_designer',
       tileProvider: CancellableNetworkTileProvider(),
     );
 
-TextSourceAttribution _tileInfo(MapServiceProvider provider){
+TextSourceAttribution _tileInfo(MapServiceProvider provider) {
   TextSourceAttribution info;
-  switch (provider){
+  switch (provider) {
     case MapServiceProvider.osm:
       info = TextSourceAttribution(
         '使用OpenStreetMap服务',
-        onTap: () async => launchUrl(Uri.parse('https://openstreetmap.org/copyright'),),
+        onTap: () async => launchUrl(
+          Uri.parse('https://openstreetmap.org/copyright'),
+        ),
       );
       break;
     case MapServiceProvider.google:
       info = TextSourceAttribution(
         '使用Google服务',
-        onTap: () async => launchUrl(Uri.parse('https://www.google.com/intl/zh-CN_us/help/terms_maps/')),
+        onTap: () async => launchUrl(
+            Uri.parse('https://www.google.com/intl/zh-CN_us/help/terms_maps/')),
       );
       break;
     case MapServiceProvider.baidu:
@@ -108,31 +116,30 @@ TextSourceAttribution _tileInfo(MapServiceProvider provider){
 }
 
 TileLayer _tileMap(MapServiceProvider provider) {
-    //assert(provider != null, 'provider must not be null');
-    TileLayer tileLayer;
+  //assert(provider != null, 'provider must not be null');
+  TileLayer tileLayer;
 
-    switch (provider) {
-      case MapServiceProvider.osm:
-        tileLayer = openStreetMapTileLayer;
-        break;
-      case MapServiceProvider.google:
-        tileLayer = googleTileLayer;
-        break;
-      case MapServiceProvider.baidu:
-        tileLayer = baiduTileLayer;
-        break;
-      case MapServiceProvider.mapbox:
-        tileLayer = mapboxTileLayer;
-        break;
-      case MapServiceProvider.tianditu:
-        tileLayer = tiandituTileLayer;
-        break;
-      case MapServiceProvider.gaode:
-        tileLayer = gaodeTileLayer;
-        break;
-      default:
-        throw AssertionError(
-            'Unsupported TileProvider $provider.');
-    }
-    return tileLayer;
+  switch (provider) {
+    case MapServiceProvider.osm:
+      tileLayer = openStreetMapTileLayer;
+      break;
+    case MapServiceProvider.google:
+      tileLayer = googleTileLayer;
+      break;
+    case MapServiceProvider.baidu:
+      tileLayer = baiduTileLayer;
+      break;
+    case MapServiceProvider.mapbox:
+      tileLayer = mapboxTileLayer;
+      break;
+    case MapServiceProvider.tianditu:
+      tileLayer = tiandituTileLayer;
+      break;
+    case MapServiceProvider.gaode:
+      tileLayer = gaodeTileLayer;
+      break;
+    default:
+      throw AssertionError('Unsupported TileProvider $provider.');
   }
+  return tileLayer;
+}
