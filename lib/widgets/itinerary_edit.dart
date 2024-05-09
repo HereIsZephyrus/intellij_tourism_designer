@@ -14,16 +14,17 @@ class ItiEditWidget extends StatefulWidget {
   const ItiEditWidget({required this.curIti,super.key});
 
   @override
-  State<ItiEditWidget> createState() => _ItiEditWidgetState(curIti:this.curIti);
+  State<ItiEditWidget> createState() => _ItiEditWidgetState();
 }
 
 class _ItiEditWidgetState extends State<ItiEditWidget> {
-  final Itinerary curIti;
+  late final Itinerary curIti=widget.curIti;
   int curDay=0;
-  _ItiEditWidgetState({required this.curIti});
+  _ItiEditWidgetState();
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Row(
       children:[
         Flexible(
@@ -31,29 +32,29 @@ class _ItiEditWidgetState extends State<ItiEditWidget> {
           child:Container(
             color:AppColors1.primaryColor,
             child:Column(
-              crossAxisAlignment:CrossAxisAlignment.center,
               children: [
-                SizedBox(height:50),
-                Container(
-                  height:curIti.Activitices.length*36>600?600:curIti.Activitices.length*36,
+                const SizedBox(height:40),
+                SizedBox(
+                  height:curIti.days.length*32>size.width-80 ?
+                    size.width-80 : curIti.days.length*32+10,
                   child: ListView(
-                    children:List.generate(curIti.Activitices.length,(index)=>
+                    children:List.generate(curIti.days.length,(index)=>
                       TextButton(
                         onPressed:(){setState(() {curDay=index;});},
+                        style:curDay==index?AppButton.button2:AppButton.button1,
                         child:Text("Day${index+1}"),
-                        style:curDay==index?AppButton.button2:AppButton.button1
                       )
                     )
                   ),
                 ),
                 TextButton(
                   onPressed:(){
-                    curIti.Activitices.add([]);curIti.weathers.add(SampleWeather);
-                    Provider.of<ShareDataPage>(context,listen:false).ChangecurIti(this.curIti);
-                    setState(() {curDay=curIti.Activitices.length-1;});
+                    curIti.days.add([]);curIti.weathers.add(sampleWeather);
+                    Provider.of<ShareDataPage>(context,listen:false).changeCurIti(curIti);
+                    setState(() {curDay=curIti.days.length-1;});
                     },
-                  child:Text("Add"),
-                  style:AppButton.button1
+                  style:AppButton.button1,
+                  child:const Text("Add"),
                 )
               ],
             )
@@ -61,37 +62,56 @@ class _ItiEditWidgetState extends State<ItiEditWidget> {
         ),
         Flexible(
           flex:5,
-          child: Container(
-            color:AppColors1.backgroundColor,
-            child:Column(
-              crossAxisAlignment:CrossAxisAlignment.center,
-              children:[
-                SizedBox(height:5),
-                Container(
-                  width:280,height:100,
-                  color:AppColors1.primaryColor3,
-                  child: WeatherCard1(curWea:curIti.weathers[curDay])
-                ),
-                SizedBox(height:5),
-                Container(
+          child: Column(
+            crossAxisAlignment:CrossAxisAlignment.center,
+            children:[
+              const SizedBox(height:5),
+              Container(
+                width:280,height:100,
+                color:AppColors1.primaryColor3,
+                child: weatherView(curIti.weathers[curDay])
+              ),
+                const SizedBox(height:5),
+                SizedBox(
                   height:500,
                   child: ListView(
-                    children:List.generate(curIti.Activitices[curDay].length,(index)=>
-                      ActCard1(curAct: curIti.Activitices[curDay][index])
+                    children:List.generate(curIti.days[curDay].length,(index)=>
+                      ActCard1(curAct: curIti.days[curDay][index])
                     )
                   ),
                 ),
                 TextButton(
                   onPressed:(){
-                    curIti.Activitices[curDay].add(SampleAct);
-                    Provider.of<ShareDataPage>(context,listen:false).ChangecurIti(this.curIti);
+                    curIti.days[curDay].add(sampleAct);
+                    Provider.of<ShareDataPage>(context,listen:false).changeCurIti(curIti);
                     setState((){});
                   },
-                  child:Icon(Icons.add),
-                  style:AppButton.button1
+                  style:AppButton.button1,
+                  child:const Icon(Icons.add),
                 )
               ]
             )
+          )
+
+      ]
+    );
+  }
+
+  Widget weatherView(Weather curWea){
+    return const Row(
+      children:[
+        Flexible(
+          flex:3,
+          child:Icon(Icons.sunny,color:AppColors1.primaryColor),
+        ),
+        Flexible(
+          flex:5,
+          child:Column(
+            children:[
+              Text("时间",style: AppText.big),
+              Text("天气",style: AppText.big),
+              Text("温度",style: AppText.big),
+            ]
           )
         )
       ]

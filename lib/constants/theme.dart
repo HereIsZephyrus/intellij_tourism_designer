@@ -20,8 +20,8 @@ class AppText {
   static const TextStyle bgStandard = TextStyle(color:AppColors1.backgroundColor,fontSize: 16);
   static const TextStyle pStandard = TextStyle(color:AppColors1.primaryColor,fontSize: 16);
   static const TextStyle standard = TextStyle(color:AppColors1.textColor,fontSize: 16);
-  static const TextStyle Small = TextStyle(color:AppColors1.textColor,fontSize: 12);
-  static const TextStyle Big = TextStyle(color:AppColors1.textColor,fontSize: 16);
+  static const TextStyle small = TextStyle(color:AppColors1.textColor,fontSize: 12);
+  static const TextStyle big = TextStyle(color:AppColors1.textColor,fontSize: 16);
 
 }
 
@@ -42,11 +42,16 @@ class AppButton{
       //backgroundColor:AppColors1.primaryColor3,
       shadowColor:AppColors1.primaryColor2,
       foregroundColor:AppColors1.textColor,
-      textStyle:AppText.Small
+      textStyle:AppText.small
   );
 }
 
 class AppSize{
   static const double buttonHeight1=48;
+  static const double buttonHeight2=42;
   static const double buttonWidth1=90;
+  static const double topBarHeight=50;
+  static const double toolBarWidth1=150;
+  static const double contentWidth1=400;
+  static const double imgHeight1=400;
 }

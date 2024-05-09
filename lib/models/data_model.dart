@@ -6,8 +6,8 @@ import 'package:intellij_tourism_designer/helpers/itinerary_builder.dart';
 class ShareDataPage extends ChangeNotifier {
   POI curPOI=POI();
   bool detailed=false;
-  List<Itinerary> MyIti=[SampleIti,SampleIti,SampleIti];
-  Itinerary curIti=SampleIti;
+  List<Itinerary> myItis=[sampleIti,sampleIti,sampleIti];
+  Itinerary curIti=sampleIti;
 
 
   POI get getPOI => curPOI;
@@ -15,15 +15,15 @@ class ShareDataPage extends ChangeNotifier {
   Itinerary get getIti => curIti;
 
 
-  void ChangePOI(POI newPOI) {
+  void changePOI(POI newPOI) {
     curPOI=newPOI;
     notifyListeners(); // 通知依赖此状态的 Widget 重新构建
   }
-  void ChangeDetailed(bool b){
+  void changeDetailed(bool b){
     detailed=b;
     notifyListeners();
   }
-  void ChangecurIti(Itinerary newIti){
+  void changeCurIti(Itinerary newIti){
     curIti=newIti;
     notifyListeners();
   }

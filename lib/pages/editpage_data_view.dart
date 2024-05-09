@@ -89,7 +89,7 @@ class _DataPageState extends State<DataPage> {
                           MapLayer[index] = newValue ?? false;
                         });
                       }),
-                  Text("Map${index}", style: AppText.Small)
+                  Text("Map${index}", style: AppText.small)
                 ],
               ),
             )));
@@ -110,12 +110,12 @@ class _DataPageState extends State<DataPage> {
                       builder:
                           (BuildContext context, POI curPOI, Widget? child) {
                         return Stack(children: [
-                          POICard1(poi: curPOI),
+                          POIDetailedView(poi: curPOI),
                           TextButton(
                               onPressed: () {
                                 Provider.of<ShareDataPage>(context,
                                         listen: false)
-                                    .ChangeDetailed(false);
+                                    .changeDetailed(false);
                               },
                               child: Icon(Icons.chevron_left),
                               style: AppButton.button1)

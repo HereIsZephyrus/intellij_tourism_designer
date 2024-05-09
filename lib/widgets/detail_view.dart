@@ -7,34 +7,110 @@ import 'package:intellij_tourism_designer/helpers/POI_builder.dart';
 import 'package:intellij_tourism_designer/helpers/itinerary_builder.dart';
 
 //细节信息的展示卡片
-
-class POICard1 extends StatefulWidget {
+class POICard extends StatelessWidget {
+  final int style;
   final POI poi;
 
-  const POICard1({
-    Key? key,
-    required this.poi
-  }) : super(key: key);
+  const POICard({required this.style,required this.poi,super.key});
 
   @override
-  State<POICard1> createState() => _POICard1State(poi:poi);
+  Widget build(BuildContext context) {
+    switch(style){
+      case 0:
+        return poiCard1(context);
+      case 1:
+        return poiCard2(context);
+      default:
+        return Container();
+    }
+  }
+
+  Widget poiCard1(BuildContext context){
+    return Row(
+        children:<Widget>[
+          Flexible(
+            flex:5,
+            child: Column(
+                children:<Widget>[
+                  Row(
+                      children:<Widget>[
+                        const Icon(Icons.ice_skating),
+                        Text(poi.Name),
+                        TextButton(
+                          onPressed:(){
+                            Provider.of<ShareDataPage>(context, listen: false).changePOI(poi);
+                            Provider.of<ShareDataPage>(context, listen: false).changeDetailed(true);
+                          },
+                          style:AppButton.button1,
+                          child:const Icon(Icons.add),
+                        )
+                      ]
+                  ),
+                  Text(poi.info),
+                  Text(poi.location)
+                ]
+            ),
+          ),
+          Flexible(
+            flex:4,
+            child: Image(image: AssetImage(poi.ImageURL)),
+          )
+        ]
+    );
+  }
+  Widget poiCard2(BuildContext context) {
+    return Row(
+      children:<Widget>[
+        Flexible(
+          flex:3,
+          child: Column(
+            children:<Widget>[
+              Row(
+                children:<Widget>[
+                  const Icon(Icons.ice_skating),
+                  Text(poi.Name)
+                ]
+              ),
+              Text(poi.info)
+            ]
+          ),
+        ),
+        Flexible(
+          flex:2,
+          child: Image(image: AssetImage(poi.ImageURL))
+        ),
+      ]
+    );
+  }
 }
 
-class _POICard1State extends State<POICard1> {
-  List<Comment> myCom=[SampleCon,SampleCon,SampleCon,SampleCon];
-  POI poi;
 
-  _POICard1State({required this.poi});
+class POIDetailedView extends StatefulWidget {
+  final List<Comment> comments=[];
+  final POI poi;
+
+  POIDetailedView({required this.poi, List<Comment>? comments, super.key}){
+    comments=comments??[sampleCon,sampleCon,sampleCon,sampleCon];
+  }
+
+  @override
+  State<POIDetailedView> createState() => _POIDetailedViewState();
+}
+
+class _POIDetailedViewState extends State<POIDetailedView> {
+  late final POI poi = widget.poi;
+  late final List<Comment> comments = widget.comments;
+
+  _POIDetailedViewState();
 
   @override
   Widget build(BuildContext context) {
     return Column(
         children:<Widget>[
           const SizedBox(height:1),
-          //SizedBox(height:1),
           Image(image: AssetImage(poi.ImageURL)),
-          Container(
-            height:400,
+          SizedBox(
+            height:AppSize.imgHeight1,
             child: ListView(
               children:<Widget>[
                 Row(
@@ -48,18 +124,18 @@ class _POICard1State extends State<POICard1> {
                 const Text(""),
                 const Divider(color:AppColors1.primaryColor, height:50, thickness:3, indent:30, endIndent:30),
                 TextButton(
-                  onPressed:(){setState(() {myCom.add(SampleCon);});},
+                  onPressed:(){setState(() {comments.add(sampleCon);});},
                   style:AppButton.button2,
                   child:const Icon(Icons.add),
                 ),
-                Container(
+                SizedBox(
                   height:300,
                   child:ListView(
-                    children:List.generate(myCom.length,(index)=>
+                    children:List.generate(comments.length,(index)=>
                       Column(
                         children:[
-                          Text(myCom[index].UserName,style:AppText.standard),
-                          Text(myCom[index].Content,style:AppText.standard)
+                          Text(comments[index].userName,style:AppText.standard),
+                          Text(comments[index].content,style:AppText.standard)
                         ]
                       )
                     )
@@ -74,114 +150,9 @@ class _POICard1State extends State<POICard1> {
 }
 
 
-class POICard2 extends StatefulWidget {
-  final POI poi;
-
-  const POICard2({
-    Key? key,
-    required this.poi
-  }) : super(key: key);
-
-  @override
-  State<POICard2> createState() => _POICard2State(poi:poi);
-}
-
-class _POICard2State extends State<POICard2> {
-  POI poi;
-
-  _POICard2State({required this.poi});
-
-  @override
-  Widget build(BuildContext context) {
-    return  Flexible(
-        fit: FlexFit.tight,
-        child:Row(
-            children:<Widget>[
-              Flexible(
-                flex:5,
-                child: Column(
-                  children:<Widget>[
-                    Row(
-                        children:<Widget>[
-                          const Icon(Icons.ice_skating),
-                          Text(poi.Name),
-                          TextButton(
-                            onPressed:(){
-                              Provider.of<ShareDataPage>(context, listen: false).ChangePOI(poi);
-                              Provider.of<ShareDataPage>(context, listen: false).ChangeDetailed(true);
-                            },
-                            style:AppButton.button1,
-                            child:const Icon(Icons.add),
-                          )
-                        ]
-                    ),
-                    Text(poi.info),
-                    Text(poi.Location)
-                    //......
-                  ]
-                ),
-              ),
-              Flexible(
-                flex:4,
-                child: Image(image: AssetImage(poi.ImageURL)),
-              )
-            ]
-        )
-    );
-  }
-}
-
-
-
-
-
-class POICard3 extends StatefulWidget {
-  final POI poi;
-
-  const POICard3({
-    Key? key,
-    required this.poi
-  }) : super(key: key);
-
-  @override
-  State<POICard3> createState() => _POICard3State(poi:poi);
-}
-
-class _POICard3State extends State<POICard3> {
-  POI poi;
-
-  _POICard3State({required this.poi});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-            children:<Widget>[
-              Flexible(
-                flex:3,
-                child: Column(
-                    children:<Widget>[
-                      Row(
-                          children:<Widget>[
-                            Icon(Icons.ice_skating),
-                            Text(poi.Name)
-                          ]
-                      ),
-                      Text(poi.info)
-                    ]
-                ),
-              ),
-              Flexible(
-                flex:2,
-                child: Image(image: AssetImage(poi.ImageURL))
-              ),
-            ]
-    );
-  }
-}
-
 class ItiCard1 extends StatelessWidget {
-  final Itinerary Iti;
-  const ItiCard1({required this.Iti,super.key});
+  final Itinerary curIti;
+  const ItiCard1({required this.curIti,super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -191,14 +162,14 @@ class ItiCard1 extends StatelessWidget {
           flex:3,
           child: Column(
             children:[
-              Text(Iti.Name,style:AppText.Small),
-              Text("时间",style:AppText.Small),
+              Text(curIti.name,style:AppText.small),
+              const Text("时间",style:AppText.small),
             ]
           ),
         ),
         Flexible(
         flex:2,
-        child: Image(image: AssetImage(Iti.ImageURL[0]))
+        child: Image(image: AssetImage(curIti.imageURLs[0]))
         )
       ]
     );
@@ -219,11 +190,11 @@ class ActCard1 extends StatelessWidget {
             children:[
               Row(
                 children:[
-                  Icon(Icons.abc),
-                  Text(curAct.point.Name,style:AppText.Small),
+                  const Icon(Icons.abc),
+                  Text(curAct.point.Name,style:AppText.small),
                 ]
               ),
-              Text("时间：",style:AppText.Small)
+              const Text("时间：",style:AppText.small)
             ]
           )
         ),
@@ -244,16 +215,16 @@ class WeatherCard1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return const Row(
       children:[
         Flexible(
           flex:5,
           child:Column(
             children: [
-              Text('时间：????-??-??',style:AppText.Small),
+              Text('时间：????-??-??',style:AppText.small),
               Card(
+                surfaceTintColor:AppColors1.primaryColor,
                 child:Text("天气：         温度：           ",style:AppText.pStandard),
-                surfaceTintColor:AppColors1.primaryColor
               )
             ]
           )

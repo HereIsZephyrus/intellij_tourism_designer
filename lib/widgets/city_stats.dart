@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:intellij_tourism_designer/constants/theme.dart';
 import 'package:intellij_tourism_designer/widgets/chart_view.dart';
 //import 'package:intellij_tourism_designer/constants/theme.dart';
 //import 'package:intellij_tourism_designer/widgets/detail_view.dart';
@@ -16,9 +17,10 @@ class CityStatsPage extends StatefulWidget {
 class _CityStatsPageState extends State<CityStatsPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height:400,
-      width:500,
+    final Size size = MediaQuery.of(context).size;
+    return SizedBox(
+      height: size.height - AppSize.buttonHeight1,
+      width:size.width-AppSize.toolBarWidth1,
       child:const CityFeatureStackBarChart()
     );
   }

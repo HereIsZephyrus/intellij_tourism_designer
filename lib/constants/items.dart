@@ -31,7 +31,7 @@ class _POIList1State extends State<POIList1> {
               vertical: 10.0,
               horizontal: 20.0,
             ),
-            child: POICard2(poi:dataList[index]),
+            child: POICard(style:1,poi:dataList[index]),
           );
         },
     );
@@ -49,7 +49,7 @@ class _POIList2State extends State<POIList2> {
             vertical: 10.0,
             horizontal: 20.0,
           ),
-          child: POICard3(poi:dataList[index]),
+          child: POICard(style:2,poi:dataList[index]),
         );
       },
     );

@@ -18,120 +18,29 @@ class _ItiFeatureState extends State<ItiFeature> {
   Widget build(BuildContext context) {
     return Column(
       children:[
-        Container(height:120, child:_customizeDayAppearanceExample()),
-        SizedBox(height:5),
+        SizedBox(height:120, child:timeEditor()),
+        const SizedBox(height:5),
+        SizedBox(height:120, child:timeEditor()),
+        const SizedBox(height:5),
         TextButton(
           onPressed:(){},
-          child:Text("确定"),
-          style:AppButton.button1
+          style:AppButton.button1,
+          child:const Text("确定"),
         ),
-        Container(height:120, child:_customizeDayAppearanceExample()),
-        SizedBox(height:5),
-        TextButton(
-            onPressed:(){},
-            child:Text("确定"),
-            style:AppButton.button1
-        ),
-        SizedBox(height:20),
-        Container(
-          height:90,
-          color:AppColors1.primaryColor,
-          child:Column(
-            children:[
-              Text("a"),
-              Row(
-                children:[
-                  TextButton(
-                      onPressed:(){},
-                      child:Text("??"),
-                      style:AppButton.button2
-                  ),
-                  TextButton(
-                      onPressed:(){},
-                      child:Text("??"),
-                      style:AppButton.button2
-                  ),
-                  TextButton(
-                      onPressed:(){},
-                      child:Text("??"),
-                      style:AppButton.button2
-                  ),
-                ]
-              )
-            ]
-          )
-        ),
-        Container(
-            height:90,
-            color:AppColors1.primaryColor,
-            child:Column(
-                children:[
-                  Text("b"),
-                  Row(
-                      children:[
-                        TextButton(
-                            onPressed:(){},
-                            child:Text("??"),
-                            style:AppButton.button2
-                        ),
-                        TextButton(
-                            onPressed:(){},
-                            child:Text("??"),
-                            style:AppButton.button2
-                        ),
-                        TextButton(
-                            onPressed:(){},
-                            child:Text("??"),
-                            style:AppButton.button2
-                        ),
-                      ]
-                  )
-                ]
-            )
-        ),
-        Container(
-            height:90,
-            color:AppColors1.primaryColor,
-            child:Column(
-                children:[
-                  Text("c"),
-                  Row(
-                      children:[
-                        TextButton(
-                            onPressed:(){},
-                            child:Text("??"),
-                            style:AppButton.button2
-                        ),
-                        TextButton(
-                            onPressed:(){},
-                            child:Text("??"),
-                            style:AppButton.button2
-                        ),
-                        TextButton(
-                            onPressed:(){},
-                            child:Text("??"),
-                            style:AppButton.button2
-                        ),
-                      ]
-                  )
-                ]
-            )
-        )
       ]
     );
   }
 }
 
-EasyDateTimeLine _customizeDayAppearanceExample() {
+EasyDateTimeLine timeEditor() {
   return EasyDateTimeLine(
     initialDate: DateTime.now(),
     onDateChange: (selectedDate) {
       //`selectedDate` the new date selected.
     },
     dayProps: const EasyDayProps(
-      height: 56.0,
-      // You must specify the width in this case.
-      width: 124.0,
+      height: 48.0,
+      width: 104.0,
     ),
     headerProps: const EasyHeaderProps(
       dateFormatter: DateFormatter.fullDateMonthAsStrDY(),

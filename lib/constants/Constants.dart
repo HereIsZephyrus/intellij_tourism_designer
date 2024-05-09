@@ -6,35 +6,34 @@ const double MAXZOOM = 18.0;
 
 
 
-Activity SampleAct =
+Activity sampleAct =
     Activity(point: POI(), start: DateTime(2000), duration: const Duration());
-Itinerary SampleIti = Itinerary(Name: "新建行程", WayPoint: [
+Itinerary sampleIti = Itinerary(name: "新建行程", wayPoints: [
   POI(),
   POI(),
   POI(),
   POI(),
   POI()
-], PathMode: [
+],pathModes: [
   0,
   0,
   0,
   0
-], Activitices: [
-  [SampleAct, SampleAct, SampleAct],
-  [SampleAct, SampleAct, SampleAct],
-  [SampleAct, SampleAct, SampleAct]
-], ImageURL: [
-  "assets/Sample.png",
+], days: [
+  [sampleAct, sampleAct, sampleAct],
+  [sampleAct, sampleAct, sampleAct],
+  [sampleAct, sampleAct, sampleAct]
+], imageURLs: ["assets/Sample.png",
   "assets/Sample.png",
   "assets/Sample.png"
 ], weathers: [
-  SampleWeather,
-  SampleWeather,
-  SampleWeather
+  sampleWeather,
+  sampleWeather,
+  sampleWeather
 ]);
-Weather SampleWeather = Weather(time: DateTime(2000), weather: "Sunny");
-Comment SampleCon = Comment(
-    UserName: "User",
-    Content: "好啊好啊",
+Weather sampleWeather = Weather(time: DateTime(2000), weather: "Sunny");
+Comment sampleCon = Comment(
+    userName: "User",
+    content: "好啊好啊",
     time: DateTime(2000),
     imageURL: ["assets/Sample.png", "assets/Sample.png", "assets/Sample.png"]);
