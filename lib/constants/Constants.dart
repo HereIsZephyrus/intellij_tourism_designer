@@ -5,6 +5,7 @@ const double MINZOOM = 5.0;
 const double MAXZOOM = 18.0;
 
 
+
 Activity SampleAct =
     Activity(point: POI(), start: DateTime(2000), duration: const Duration());
 Itinerary SampleIti = Itinerary(Name: "新建行程", WayPoint: [

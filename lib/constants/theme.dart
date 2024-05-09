@@ -19,7 +19,7 @@ class AppText {
 
   static const TextStyle bgStandard = TextStyle(color:AppColors1.backgroundColor,fontSize: 16);
   static const TextStyle pStandard = TextStyle(color:AppColors1.primaryColor,fontSize: 16);
-  static const TextStyle Standard = TextStyle(color:AppColors1.textColor,fontSize: 16);
+  static const TextStyle standard = TextStyle(color:AppColors1.textColor,fontSize: 16);
   static const TextStyle Small = TextStyle(color:AppColors1.textColor,fontSize: 12);
   static const TextStyle Big = TextStyle(color:AppColors1.textColor,fontSize: 16);
 
@@ -30,13 +30,13 @@ class AppButton{
     backgroundColor:AppColors1.primaryColor,
     foregroundColor:AppColors1.backgroundColor,
     textStyle:AppText.bgStandard,
-    shape:RoundedRectangleBorder(borderRadius: BorderRadius.zero)
+    shape:const RoundedRectangleBorder(borderRadius: BorderRadius.zero)
   );
   static final ButtonStyle button2 = ElevatedButton.styleFrom(
       backgroundColor:AppColors1.backgroundColor,
       foregroundColor:AppColors1.primaryColor,
       textStyle:AppText.bgStandard,
-      shape:RoundedRectangleBorder(borderRadius: BorderRadius.zero)
+      shape:const RoundedRectangleBorder(borderRadius: BorderRadius.zero)
   );
   static final ButtonStyle button3 = ElevatedButton.styleFrom(
       //backgroundColor:AppColors1.primaryColor3,
@@ -44,4 +44,9 @@ class AppButton{
       foregroundColor:AppColors1.textColor,
       textStyle:AppText.Small
   );
+}
+
+class AppSize{
+  static const double buttonHeight1=48;
+  static const double buttonWidth1=90;
 }

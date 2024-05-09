@@ -20,7 +20,8 @@ class WebApp extends StatelessWidget {
       ),
       home: ChangeNotifierProvider(
         create: (_) => ShareDataPage(),
-        child: EditTracePage(),
+        child: const EditTracePage(),
+        //child:const LoginPage()
       ), // 网站起始界面
       routes: {
         '/login':(context) => const LoginPage(), // 登录界面

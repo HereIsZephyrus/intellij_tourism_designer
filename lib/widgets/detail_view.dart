@@ -58,8 +58,8 @@ class _POICard1State extends State<POICard1> {
                     children:List.generate(myCom.length,(index)=>
                       Column(
                         children:[
-                          Text(myCom[index].UserName,style:AppText.Standard),
-                          Text(myCom[index].Content,style:AppText.Standard)
+                          Text(myCom[index].UserName,style:AppText.standard),
+                          Text(myCom[index].Content,style:AppText.standard)
                         ]
                       )
                     )
