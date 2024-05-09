@@ -176,9 +176,9 @@ class ItiCard1 extends StatelessWidget {
   }
 }
 
-class ActCard1 extends StatelessWidget {
+class ActCard extends StatelessWidget {
   final Activity curAct;
-  const ActCard1({required this.curAct,super.key});
+  const ActCard({required this.curAct,super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -209,9 +209,9 @@ class ActCard1 extends StatelessWidget {
 
 
 
-class WeatherCard1 extends StatelessWidget {
+class WeatherCard extends StatelessWidget {
   final Weather curWea;
-  const WeatherCard1({required this.curWea,super.key});
+  const WeatherCard({required this.curWea,super.key});
 
   @override
   Widget build(BuildContext context) {

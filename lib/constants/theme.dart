@@ -47,11 +47,14 @@ class AppButton{
 }
 
 class AppSize{
-  static const double buttonHeight1=48;
   static const double buttonHeight2=42;
-  static const double buttonWidth1=90;
+  static const double buttonHeight1=48;
   static const double topBarHeight=50;
+  static const double buttonWidth1=90;
   static const double toolBarWidth1=150;
+  static const double selectViewWidth=180;
+  static const double contentWidth3=320;
   static const double contentWidth1=400;
   static const double imgHeight1=400;
+  static const double contentWidth2=520;
 }

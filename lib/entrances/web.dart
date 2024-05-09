@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:intellij_tourism_designer/pages/home_page.dart';
 import 'package:intellij_tourism_designer/pages/user_page.dart';
 import 'package:intellij_tourism_designer/pages/login_page.dart';
 import 'package:intellij_tourism_designer/pages/signup_page.dart';

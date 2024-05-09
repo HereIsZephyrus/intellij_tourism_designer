@@ -24,7 +24,7 @@ class _CompanionPageState extends State<CompanionPage> {
           right:20,top:20,width:340,height:100,
           child: Card(
             color:AppColors1.primaryColor3,
-            child:WeatherCard1(curWea:sampleWeather)
+            child:WeatherCard(curWea:sampleWeather)
           )
         )
       ]

@@ -8,12 +8,13 @@ class ShareDataPage extends ChangeNotifier {
   bool detailed=false;
   List<Itinerary> myItis=[sampleIti,sampleIti,sampleIti];
   Itinerary curIti=sampleIti;
+  List<POI> poiList=List.generate(20, (index) => POI());
 
 
   POI get getPOI => curPOI;
   bool get isDetailed => detailed;
   Itinerary get getIti => curIti;
-
+  List<POI> get getPOIList =>poiList;
 
   void changePOI(POI newPOI) {
     curPOI=newPOI;

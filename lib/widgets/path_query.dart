@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:intellij_tourism_designer/constants/theme.dart';
-import 'package:intellij_tourism_designer/constants/items.dart';
+import 'package:intellij_tourism_designer/models/data_model.dart';
 import 'package:intellij_tourism_designer/widgets/detail_view.dart';
 import 'package:intellij_tourism_designer/helpers/POI_builder.dart';
 
@@ -78,13 +79,13 @@ class _PathQueryWidgetState extends State<PathQueryWidget> {
             ],
           )
         ),
-        SizedBox(height:20),
+        const SizedBox(height:20),
         Container(
           height:70,
           color:AppColors1.primaryColor,
           child:Column(
             children: [
-              Text("策略",style:AppText.bgStandard),
+              const Text("策略",style:AppText.bgStandard),
               IndexedStack(
                 index:transport,
                 children:[
@@ -101,11 +102,11 @@ class _PathQueryWidgetState extends State<PathQueryWidget> {
             ],
           )
         ),
-        SizedBox(height:30),
-        Text("热门地点",style:AppText.pStandard),
-        Container(
+        const SizedBox(height:30),
+        const Text("热门地点",style:AppText.pStandard),
+        SizedBox(
           height:300,
-          child:POIList1()
+          child: infrestructureList(context)
         )
       ],
     );
@@ -127,4 +128,19 @@ class _PathQueryWidgetState extends State<PathQueryWidget> {
     );
   }
 
+  Widget infrestructureList(BuildContext context) {
+    final model = Provider.of<ShareDataPage>(context);
+    return ListView.builder(
+      itemCount: model.poiList.length,
+      itemBuilder: (BuildContext context, int index) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(
+            vertical: 10.0,
+            horizontal: 20.0,
+          ),
+          child: POICard(style: 1, poi: model.poiList[index]),
+        );
+      },
+    );
+  }
 }

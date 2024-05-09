@@ -66,9 +66,8 @@ class _ItiEditWidgetState extends State<ItiEditWidget> {
             crossAxisAlignment:CrossAxisAlignment.center,
             children:[
               const SizedBox(height:5),
-              Container(
-                width:280,height:100,
-                color:AppColors1.primaryColor3,
+              SizedBox(
+                height:100,
                 child: weatherView(curIti.weathers[curDay])
               ),
                 const SizedBox(height:5),
@@ -76,7 +75,7 @@ class _ItiEditWidgetState extends State<ItiEditWidget> {
                   height:500,
                   child: ListView(
                     children:List.generate(curIti.days[curDay].length,(index)=>
-                      ActCard1(curAct: curIti.days[curDay][index])
+                      ActCard(curAct: curIti.days[curDay][index])
                     )
                   ),
                 ),
