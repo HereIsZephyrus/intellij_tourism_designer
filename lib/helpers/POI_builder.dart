@@ -1,20 +1,20 @@
 class POI {
-  double Lat, Lng;
+  double lat, lng;
   String Name;
-  String Type;
-  int Area;
+  String type;
+  int area;
   String info;
-  String Location;
+  String location;
   String ImageURL;
 
   POI(
-      {this.Lat = 0,
-      this.Lng = 0,
+      {this.lat = 0,
+      this.lng = 0,
       this.Name = "？未知地点",
-      this.Type = "NONE",
-      this.Area = -1,
+      this.type = "NONE",
+      this.area = -1,
       this.info = "暂无介绍，请！勇！敢！探！索！",
-      this.Location = "....?",
+      this.location = "....?",
       this.ImageURL = "assets/Sample.png"});
 }
 

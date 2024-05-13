@@ -127,7 +127,7 @@ class BarChartSample1State extends State<BarChartSample1> {
                 const SizedBox(
                   height: 4,
                 ),
-                Text('Grafik konsumsi kalori',
+                const Text('Grafik konsumsi kalori',
                     style: TextStyle(
                       color: AppColors1.textColor,
                       fontSize: 18,

@@ -36,42 +36,42 @@ class _ItineraryPageState extends State<ItineraryPage> {
     return Row(children: [
       if (curState != ItineraryState.editItinerary) featureSwitchButton,
       featureBlock,
-      Container(
-          width: size.width - 150 - (curState == 0 ? 0 : 400),
-          height: size.height - 48,
-          child: DemoMap())
+      SizedBox(
+          width: size.width - AppSize.contentWidth1 - AppSize.toolBarWidth1,
+          height: size.height - AppSize.buttonHeight1,
+          child: const DemoMap())
     ]);
   }
 
   Widget buildSwitchButton(Size size) {
     return Container(
-      height: size.height - 48,
-      width: 150,
+      height: size.height - AppSize.topBarHeight,
+      width: AppSize.toolBarWidth1,
       color: AppColors1.primaryColor,
       child: Column(children: <Widget>[
-        Container(
-          width: 150,
-          height: 42,
+        SizedBox(
+          width: AppSize.toolBarWidth1,
+          height: AppSize.buttonHeight2,
           child: TextButton(
-              child: Text("我的规划"),
               style: curState == ItineraryState.myItinerary
                   ? AppButton.button2
                   : AppButton.button1,
+              child: const Text("我的规划"),
               onPressed: () {
                 setState(() {
                   curState = ItineraryState.myItinerary;
                 });
               }),
         ),
-        SizedBox(height: 10),
-        Container(
-          width: 150,
-          height: 42,
+        const SizedBox(height: 5),
+        SizedBox(
+          width: AppSize.toolBarWidth1,
+          height: AppSize.buttonHeight2,
           child: TextButton(
-              child: Text("推荐规划"),
               style: curState == ItineraryState.recommendItinerary
                   ? AppButton.button2
                   : AppButton.button1,
+              child: const Text("推荐规划"),
               onPressed: () {
                 setState(() {
                   curState = ItineraryState.recommendItinerary;
@@ -85,57 +85,57 @@ class _ItineraryPageState extends State<ItineraryPage> {
   Widget showFeatureBlock(ItineraryState state, Size size) {
     switch (state) {
       case ItineraryState.myItinerary:
-        return Container(
-            height: size.height - 48,
-            width: 400,
+        return SizedBox(
+          height: size.height - AppSize.buttonHeight1,
+          width: AppSize.contentWidth1,
             child: Selector<ShareDataPage, List<Itinerary>>(
-                selector: (BuildContext context, ShareDataPage model) =>
-                    model.MyIti,
-                builder: (BuildContext context, List<Itinerary> MyIti,
-                    Widget? child) {
-                  return ListView(
-                      children: List.generate(
-                          MyIti.length,
-                          (index) => TextButton(
-                                onPressed: () {
-                                  Provider.of<ShareDataPage>(context,
-                                          listen: false)
-                                      .ChangecurIti(MyIti[index]);
-                                  setState(() {
-                                    curState = ItineraryState.editItinerary;
-                                  });
-                                },
-                                child: ItiCard1(Iti: MyIti[index]),
-                                style: AppButton.button2,
-                              )));
-                }));
+              selector: (BuildContext context, ShareDataPage model) =>
+                model.myItis,
+              builder: (BuildContext context, List<Itinerary> myItis, Widget? child) {
+                return ListView(
+                  children: List.generate(
+                    myItis.length,
+                    (index) => TextButton(
+                      onPressed: () {
+                        Provider.of<ShareDataPage>(context, listen: false)
+                          .changeCurIti(myItis[index]);
+                        setState(() {
+                          curState = ItineraryState.editItinerary;
+                        });
+                      },
+                      style: AppButton.button2,
+                      child: ItiCard1(curIti: myItis[index]),
+                      )));
+              }));
       case ItineraryState.editItinerary:
-        return Container(
-            height: size.height - 48,
-            width: 550,
-            color: AppColors1.primaryColor,
-            child: Stack(children: [
-              Selector<ShareDataPage, Itinerary>(
-                  selector: (BuildContext context, ShareDataPage model) =>
-                      model.curIti,
-                  builder:
-                      (BuildContext context, Itinerary curIti, Widget? child) {
-                    return Stack(children: [
-                      ItiEditWidget(curIti: curIti),
-                      TextButton(
-                          onPressed: () {
-                            setState(() {
-                              curState = ItineraryState.myItinerary;
-                            });
-                          },
-                          child: Icon(Icons.chevron_left),
-                          style: AppButton.button1)
-                    ]);
-                  })
-            ]));
+        return SizedBox(
+            height: size.height - AppSize.topBarHeight,
+            width: AppSize.toolBarWidth1+AppSize.contentWidth1,
+            child:Selector<ShareDataPage, Itinerary>(
+              selector: (BuildContext context, ShareDataPage model) =>
+                model.curIti,
+              builder: (BuildContext context, Itinerary curIti, Widget? child) {
+                return Stack(
+                  children: [
+                    ItiEditWidget(curIti: curIti),
+                    TextButton(
+                      onPressed: () {
+                        setState(() {
+                          curState = ItineraryState.myItinerary;
+                        });
+                      },
+                      style: AppButton.button1,
+                      child: const Icon(Icons.chevron_left),
+                    )
+                  ]);
+                }
+              )
+            );
       case ItineraryState.recommendItinerary:
-        return Container(
-            height: size.height - 48, width: 400, child: ItiFeature());
+        return SizedBox(
+            height: size.height - AppSize.topBarHeight,
+            width: AppSize.contentWidth1,
+            child: const ItiFeature());
       default:
         return Container();
     }

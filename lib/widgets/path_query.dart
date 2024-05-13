@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:intellij_tourism_designer/constants/theme.dart';
-import 'package:intellij_tourism_designer/constants/items.dart';
+import 'package:intellij_tourism_designer/models/data_model.dart';
 import 'package:intellij_tourism_designer/widgets/detail_view.dart';
 import 'package:intellij_tourism_designer/helpers/POI_builder.dart';
 
@@ -14,118 +15,86 @@ class PathQueryWidget extends StatefulWidget {
 }
 
 class _PathQueryWidgetState extends State<PathQueryWidget> {
-  List<POI> WayPoint=[POI(),POI()];
-  int Transport=0;
-  int Strategy=0;
+  List<POI> wayPoint=[POI(),POI()];
+  int transport=0;
+  int strategy=0;
 
   @override
   Widget build(BuildContext context) {
     return ListView(
       children: [
         Container(
-          alignment: Alignment(0,0),
+          alignment: const Alignment(0,0),
           width:280,
           height:300,
           child: ReorderableListView(
-            children: List.generate(WayPoint.length,(index)=>
+            children: List.generate(wayPoint.length,(index)=>
               Container(
                 key:ValueKey(index),
                 width:280,
                 height:120,
-                padding:EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0,),
+                padding:const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0,),
                 child: TextButton(
                   onPressed:(){},
-                  child:POICard3(poi:WayPoint[index]),
-                  style:AppButton.button2
+                  style:AppButton.button2,
+                  child:POICard(style:1,poi:wayPoint[index]),
                 ),
               )
             ),
             onReorder:(int oldIndex,int newIndex){
               setState((){
                 if(oldIndex<newIndex){newIndex-=1;}
-                final POI item =WayPoint.removeAt(oldIndex);
-                WayPoint.insert(newIndex,item);
+                final POI item =wayPoint.removeAt(oldIndex);
+                wayPoint.insert(newIndex,item);
               });
             }
           )
         ),
-        SizedBox(height:10),
+        const SizedBox(height:10),
         SizedBox(
           width:150,
           child: TextButton(
-            onPressed:(){setState((){WayPoint.add(POI());});},
-            child:Text("添加途径点"),
-            style:AppButton.button1
+            onPressed:(){setState((){wayPoint.add(POI());});},
+            style:AppButton.button1,
+            child:const Text("添加途径点"),
           ),
         ),
         //Divider(height:20,thickness: 1,indent:20,endIndent:20,color:AppColors1.primaryColor),
-        SizedBox(height:20),
+        const SizedBox(height:20),
         Container(
           height:70,
           color:AppColors1.primaryColor,
           child:Column(
             children: [
-              Text("出行方式",style:AppText.bgStandard),
+              const Text("出行方式",style:AppText.bgStandard),
               Row(
                 children:[
-                  TextButton(
-                    onPressed:(){setState(() {Transport=1;});},
-                    child:(Text("步行")),
-                    style:Transport==1 ? AppButton.button1 : AppButton.button2,
-                  ),
-                  TextButton(
-                    onPressed:(){setState(() {Transport=2;});},
-                    child:(Text("骑行")),
-                    style:Transport==2 ? AppButton.button1 : AppButton.button2,
-                  ),
-                  TextButton(
-                    onPressed:(){setState(() {Transport=3;});},
-                    child:(Text("公交")),
-                    style:Transport==3 ? AppButton.button1 : AppButton.button2,
-                  ),
-                  TextButton(
-                    onPressed:(){setState(() {Transport=4;});},
-                    child:(Text("地铁")),
-                    style:Transport==4 ? AppButton.button1 : AppButton.button2,
-                  ),
-                  TextButton(
-                    onPressed:(){setState(() {Transport=5;});},
-                    child:(Text("驾车")),
-                    style:Transport==5? AppButton.button1 : AppButton.button2,
-                  )
+                  transportButton(1,"步行"),
+                  transportButton(2,"步行"),
+                  transportButton(3,"公交"),
+                  transportButton(4,"地铁"),
+                  transportButton(5,"驾车"),
                 ]
               ),
             ],
           )
         ),
-        SizedBox(height:20),
+        const SizedBox(height:20),
         Container(
           height:70,
           color:AppColors1.primaryColor,
           child:Column(
             children: [
-              Text("策略",style:AppText.bgStandard),
+              const Text("策略",style:AppText.bgStandard),
               IndexedStack(
-                index:Transport,
+                index:transport,
                 children:[
                   Container(),
                   Row(
                     children:[
-                      TextButton(
-                        onPressed:(){setState(() {Strategy=1;});},
-                        child:(Text("距离最短")),
-                        style: Strategy==1? AppButton.button1 : AppButton.button2,
-                      ),
-    TextButton(
-    onPressed:(){setState(() {Strategy=2;});},
-    child:(Text("探索小路")),
-    style: Strategy==2? AppButton.button1 : AppButton.button2,
-    ),
-    TextButton(
-    onPressed:(){setState(() {Strategy=3;});},
-    child:(Text("风景不错")),
-    style: Strategy==3? AppButton.button1 : AppButton.button2,
-    ),
+                      strategyButton(1,"距离最短"),
+                      strategyButton(2,"探索小路"),
+                      strategyButton(3,"风景不错")
                     ]
                   )
                 ]
@@ -133,13 +102,45 @@ class _PathQueryWidgetState extends State<PathQueryWidget> {
             ],
           )
         ),
-        SizedBox(height:30),
-        Text("热门地点",style:AppText.pStandard),
-        Container(
+        const SizedBox(height:30),
+        const Text("热门地点",style:AppText.pStandard),
+        SizedBox(
           height:300,
-          child:POIList1()
+          child: infrestructureList(context)
         )
       ],
+    );
+  }
+
+  Widget strategyButton(int s,String child){
+    return TextButton(
+      onPressed:(){setState(() {strategy=s;});},
+      style: strategy==s? AppButton.button1 : AppButton.button2,
+      child:Text(child),
+    );
+  }
+
+  Widget transportButton(int t,String child){
+    return TextButton(
+      onPressed:(){setState(() {transport=t;});},
+      style: strategy==t? AppButton.button1 : AppButton.button2,
+      child:Text(child),
+    );
+  }
+
+  Widget infrestructureList(BuildContext context) {
+    final model = Provider.of<ShareDataPage>(context);
+    return ListView.builder(
+      itemCount: model.poiList.length,
+      itemBuilder: (BuildContext context, int index) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(
+            vertical: 10.0,
+            horizontal: 20.0,
+          ),
+          child: POICard(style: 1, poi: model.poiList[index]),
+        );
+      },
     );
   }
 }

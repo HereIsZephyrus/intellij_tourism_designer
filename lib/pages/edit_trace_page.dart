@@ -9,6 +9,7 @@ enum ViewType {
   dataCheck,
   itineraryEdit,
   routeTrace,
+  blank
 }
 //import 'package:intellij_tourism_designer/widgets/Drawer.dart';
 class EditTracePage extends StatefulWidget {
@@ -19,7 +20,7 @@ class EditTracePage extends StatefulWidget {
 }
 
 class _EditTracePageState extends State<EditTracePage> {
-  ViewType _selectedView = ViewType.dataCheck; // 记录当前选择的应用,默认为行程数据检查试图
+  ViewType _selectedView = ViewType.blank; // 默认空白初始界面
 
   @override
   Widget build(BuildContext context) {
@@ -27,15 +28,10 @@ class _EditTracePageState extends State<EditTracePage> {
     return Scaffold(
       body: Column(children: <Widget>[
         Row(children: guideButtonBar()),
-        const Divider(
-            thickness: 2,
-            height: 0.0,
-            indent: 0.0,
-            endIndent: 0.0,
-            color: AppColors1.primaryColor),
-        Container(
-          width: 1440,
-          height: size.height - 48,
+        const Divider(thickness: 2, height : 0, color: AppColors1.primaryColor),
+        SizedBox(
+          width: size.width,
+          height: size.height - AppSize.buttonHeight1,
           child: IndexedStack(
             index: _selectedView.index, 
             children: const <Widget>[
@@ -59,9 +55,9 @@ class _EditTracePageState extends State<EditTracePage> {
   }
 
   Widget guideButton(ViewType type,Icon icon) {
-    return Container(
-      width: 90,
-      height: 48,
+    return SizedBox(
+      width: AppSize.buttonWidth1,
+      height: AppSize.buttonHeight1,
       child: TextButton(
           style: _selectedView == type
               ? AppButton.button1

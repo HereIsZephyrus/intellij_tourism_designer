@@ -1,4 +1,3 @@
-import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:intellij_tourism_designer/constants/theme.dart';
 import 'package:intellij_tourism_designer/widgets/map_view.dart';
@@ -20,12 +19,12 @@ class _CompanionPageState extends State<CompanionPage> {
   Widget build(BuildContext context) {
     return Stack(
       children:[
-        DemoMap(),
+        const DemoMap(),
         Positioned(
           right:20,top:20,width:340,height:100,
           child: Card(
             color:AppColors1.primaryColor3,
-            child:WeatherCard1(curWea:SampleWeather)
+            child:WeatherCard(curWea:sampleWeather)
           )
         )
       ]

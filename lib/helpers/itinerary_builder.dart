@@ -9,21 +9,21 @@ class Activity {
 }
 
 class Itinerary {
-  String Name;
+  String name;
 
-  List<POI> WayPoint;
-  List<int> PathMode;
-  List<String> ImageURL;
+  List<POI> wayPoints;
+  List<int> pathModes;
+  List<String> imageURLs;
 
-  List<List<Activity>> Activitices;
+  List<List<Activity>> days;
   List<Weather> weathers;
 
   Itinerary(
-      {required this.Name,
-      required this.WayPoint,
-      required this.PathMode,
-      required this.Activitices,
-      required this.ImageURL,
+      {required this.name,
+      required this.wayPoints,
+      required this.pathModes,
+      required this.days,
+      required this.imageURLs,
       required this.weathers});
 }
 
@@ -35,14 +35,14 @@ class Weather {
 }
 
 class Comment {
-  String UserName;
-  String Content;
+  String userName;
+  String content;
   DateTime time;
   List<String> imageURL;
 
   Comment(
-      {required this.UserName,
-      required this.Content,
+      {required this.userName,
+      required this.content,
       required this.time,
       required this.imageURL});
 }

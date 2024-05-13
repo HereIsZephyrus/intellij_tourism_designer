@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:intellij_tourism_designer/pages/home_page.dart';
 import 'package:intellij_tourism_designer/pages/user_page.dart';
 import 'package:intellij_tourism_designer/pages/login_page.dart';
 import 'package:intellij_tourism_designer/pages/signup_page.dart';
@@ -20,7 +19,8 @@ class WebApp extends StatelessWidget {
       ),
       home: ChangeNotifierProvider(
         create: (_) => ShareDataPage(),
-        child: EditTracePage(),
+        child: const EditTracePage(),
+        //child:const LoginPage()
       ), // 网站起始界面
       routes: {
         '/login':(context) => const LoginPage(), // 登录界面
